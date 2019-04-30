@@ -6,6 +6,7 @@ import compression from 'compression';
 import helmet from 'helmet';
 
 import routers from './routes/index';
+import db from './db/db';
 
 dotenv.config({path : 'config.env'});
 
@@ -19,7 +20,15 @@ app.use (
     helmet()
 )
 
-const router = routers(app);
+routers(app);
+
+db.sequelize.sync()
+    .then(() => {
+        console.log('sequelize sync success');
+    })
+    .catch(err => {
+        console.error(err);
+    });
 
 app.listen(process.env.SERVER_PORT, () => {
     console.log(`express server start on port ${process.env.SERVER_PORT}`);
