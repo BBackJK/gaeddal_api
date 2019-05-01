@@ -22,7 +22,7 @@ util.successFail = (err, msg) => {
     return {
         success : false,
         message : msg,
-        error : err ? util.parseError(err) : null,
+        error : err ? err : null,
         data : null
     };
 };

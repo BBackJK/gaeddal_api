@@ -20,7 +20,7 @@ app.use (
     helmet()
 )
 
-routers(app);
+app.use('/api', routers);
 
 db.sequelize.sync()
     .then(() => {

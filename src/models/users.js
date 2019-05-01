@@ -9,14 +9,17 @@ export default (sequelize, Sequelize) => sequelize.define(
         email : {
             type : Sequelize.STRING,
             allowNull : false,
+            unique : true,
         },
         sns_email : {
             type : Sequelize.STRING,
             allowNull : false,
+            unique : true,
         },
         nickname : {
             type : Sequelize.STRING,
             allowNull : false,
+            unique : true,
         },
         auth_email : {
             type : Sequelize.BOOLEAN,

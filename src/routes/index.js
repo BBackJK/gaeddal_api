@@ -1,7 +1,11 @@
-import getTest from './test/getTest';
-import postTest from './test/postTest';
+import express from 'express';
 
-export default (app) => {
-    app.get('/api/test',getTest);
-    app.post('/api/test',postTest);
-}
+import tests from './test';
+import users from './users';
+
+const router = express.Router();
+
+router.use('/test',tests);
+router.use('/user',users);
+
+export default router;

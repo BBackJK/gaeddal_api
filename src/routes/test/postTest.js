@@ -1,6 +1,4 @@
 export default (req, res) => {
-    console.log(req.body);
-
     if (!req.body){
         res.status(400).send('Bad data!');
     }
