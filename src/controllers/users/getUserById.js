@@ -7,6 +7,6 @@ export default async (data) => {
     whereData.removed = 0;
     whereData.id = data;
 
-    return await Users.findOne({ where : whereData })
+    return await Users.findOne({ where : whereData });
 
 }

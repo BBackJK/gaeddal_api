@@ -17,7 +17,6 @@ export default async (req, res) => {
             return res.status(200).send(Util.successFail(200,'already exist nickname'));
         }
 
-        // return res.status(201).send(result);
         return res.status(201).send(Util.successTrue(result));
 
     } catch (error) {

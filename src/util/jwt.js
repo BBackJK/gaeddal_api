@@ -1,7 +1,4 @@
 import jwt from 'jsonwebtoken';
-import dotenv from 'dotenv';
-
-dotenv.config({path : 'config.env'});
 
 const util = {};
 
@@ -38,7 +35,6 @@ util.isLoggedIn = (req, res, next) => {
             if(err) return res.json(util.successFail(err));
             else {
                 req.decoded = decoded;
-                console.log(req.decoded);
                 next();
             }
         });

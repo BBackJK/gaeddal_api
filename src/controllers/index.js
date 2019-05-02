@@ -1,5 +1,7 @@
 import Users from './users';
+import Auth from './auth';
 
 export {
-    Users
+    Users,
+    Auth
 }
