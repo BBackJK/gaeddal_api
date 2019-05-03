@@ -16,7 +16,7 @@ export default async (data) => {
     const payload = { 
         id : result.dataValues.id,
         email : result.dataValues.email,
-        nickname : result.dataValues.nickname
+        sns_email : result.dataValues.sns_email
     }
 
     const secretOrPrivateKey = process.env.JWT_SECRET;

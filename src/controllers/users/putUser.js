@@ -6,14 +6,14 @@ export default async (data) => {
     const updateData = {};
 
     updateData.updated_at = new Date();
-    updateData.nickname = data.nickname;
+    updateData.name = data.name;
 
     whereData.removed = 0;
     whereData.id = data.id;
 
-    await Users.update(updateData, {where : whereData })
+    const updateResult = await Users.update(updateData, {where : whereData })
 
-    whereData.nickname = data.nickname;
+    whereData.name = data.name;
 
     const result = await Users.findOne({where : whereData});
 

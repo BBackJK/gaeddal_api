@@ -9,7 +9,7 @@ export default async (data) => {
     whereData.removed = 0;
     whereData.id = data.id;
     whereData.email = data.email;
-    whereData.nickname = data.nickname;
+    whereData.sns_email = data.sns_email;
 
     const result = await Users.findOne({ where : whereData });
 
@@ -18,7 +18,7 @@ export default async (data) => {
     const payload = {
         id : result.dataValues.id,
         email : result.dataValues.email,
-        nickname : result.dataValues.nickname
+        sns_email : result.dataValues.sns_email
     }
     
     const secretOrPrivateKey = process.env.JWT_SECRET;

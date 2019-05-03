@@ -7,7 +7,7 @@ util.successTrue = (data) => {
         success : true,
         message : null,
         errors : null,
-        data : data
+        data : data ? data : null
     };
 };
 

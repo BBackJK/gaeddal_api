@@ -12,7 +12,7 @@ export default async (req, res) => {
 
         return res.status(200).send(Util.successTrue(result));
 
-    } catch (error) {
+    } catch (err) {
         return res.status(500).send(Util.successFail(500,'internal server error'));
     }
 }
