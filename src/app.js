@@ -1,4 +1,5 @@
 import express from 'express';
+import swagger from 'swagger-ui-express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import bodyParser from 'body-parser';
@@ -7,6 +8,7 @@ import helmet from 'helmet';
 
 import routers from './routes/index';
 import db from './db/db';
+import apiDocs from '../swagger.json';
 
 dotenv.config({path : 'config.env'});
 
@@ -20,6 +22,7 @@ app.use (
     helmet()
 )
 
+app.use('/docs', swagger.serve, swagger.setup(apiDocs));
 app.use('/', routers);
 
 db.sequelize.sync()

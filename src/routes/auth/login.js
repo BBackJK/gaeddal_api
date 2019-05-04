@@ -7,7 +7,7 @@ export default async (req, res) => {
 
         const result = await Auth.login(req.body.sns_email);
 
-        if(result === 'email') return res.status(404,'not found');
+        if(result === 'email') return res.status(404).send('not found');
 
         return res.status(201).send(result);
 

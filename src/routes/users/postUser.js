@@ -3,8 +3,6 @@ import { Users } from '../../controllers';
 export default async (req, res) => {
     try {
 
-        console.log("in routes post User");
-
         if(!req.body.email || !req.body.sns_email || !req.body.name) {
             return res.status(400).send('Bad Data');
         }
