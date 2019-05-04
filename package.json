@@ -25,7 +25,8 @@
     "helmet": "^3.16.0",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^1.6.5",
-    "sequelize": "^5.8.0"
+    "sequelize": "^5.8.0",
+    "swagger-ui-express": "^4.0.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
