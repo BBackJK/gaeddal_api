@@ -16,19 +16,15 @@ export default (sequelize, Sequelize) => sequelize.define(
         },
         acceptanced : {
             type : Sequelize.BOOLEAN,
-            defaultValue : Sequelize.literal(0),
+            defaultValue : 0,
             allowNull : false,
         },
         removed : {
             type : Sequelize.BOOLEAN,
-            defaultValue : Sequelize.literal(0),
+            defaultValue : 0,
             allowNull : false,
         },
-        followed_at : {
-            type : 'TIMESTAMP',
-            defaultValue : Sequelize.literal('CURRENT_TIMESTAMP'),
-            allowNull : false,
-        },
+        followed_at : { type : Sequelize.DATE },
         acceptanced_at : { type : Sequelize.DATE },
         removed_at : { type : Sequelize.DATE }
     }, {

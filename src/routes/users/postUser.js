@@ -3,14 +3,16 @@ import { Users } from '../../controllers';
 export default async (req, res) => {
     try {
 
+        console.log("in routes post User");
+
         if(!req.body.email || !req.body.sns_email || !req.body.name) {
             return res.status(400).send('Bad Data');
         }
 
         const result = await Users.post(req.body);
 
-        if(result === undefined && result === 'email'){
-            return res.status(200).send('already exist email');
+        if(result === undefined || result === 'email'){
+            return res.status(409).send('already exist email');
         }
 
         return res.status(201).send(result);

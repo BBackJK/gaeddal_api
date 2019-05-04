@@ -2,6 +2,8 @@ import { Users } from '../../models';
 
 export default async (data) => {
 
+    console.log(data);
+
     const emailWhereData = {};
 
     emailWhereData.email = data.email;
@@ -11,7 +13,11 @@ export default async (data) => {
 
     if(emailOverlap !== null) return 'email';
 
+    data.created_at = new Date();
+
+    console.log("in controller post User");
+
     const result = await Users.create(data);
 
-    return result.dataValues;
+    return result;
 }

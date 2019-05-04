@@ -22,19 +22,15 @@ export default (sequelize, Sequelize) => sequelize.define(
         },
         auth_email : {
             type : Sequelize.BOOLEAN,
-            defaultValue : Sequelize.literal(0),
+            defaultValue : 0,
             allowNull : false,
         },
         removed : {
             type : Sequelize.BOOLEAN,
-            defaultValue : Sequelize.literal(0),
+            defaultValue : 0,
             allowNull : false,
         },
-        created_at : {
-            type : 'TIMESTAMP',
-            defaultValue : Sequelize.literal('CURRENT_TIMESTAMP'),
-            allowNull : false,
-        },
+        created_at : { type : Sequelize.DATE },
         auth_at : { type : Sequelize.DATE },
         updated_at : { type : Sequelize.DATE },
         removed_at : { type : Sequelize.DATE }

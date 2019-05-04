@@ -1,4 +1,5 @@
 import { Users, Follow } from '../../models';
+import follow from '../../models/follow';
 
 export default async (data) => {
 
@@ -15,6 +16,7 @@ export default async (data) => {
 
         followBody.follow_id = data.id;
         followBody.target_id = findData.dataValues.id;
+        followBody.created_at = new Date();
 
         const result = await Follow.create(followBody);
 
