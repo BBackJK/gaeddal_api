@@ -25,7 +25,7 @@ export default async (data) => {
 
         const result = await Users.findAll({ attributes : ['name','email'], where : whereData });
 
-        return result.length > 0 ? result : 404;
+        return result.length > 0 ? result : 'not found';
 
-    } else return 204;
+    } else return findData;
 }

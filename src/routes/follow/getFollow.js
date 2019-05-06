@@ -5,9 +5,9 @@ export default async (req, res) => {
 
         const result = await Follow.get(req.params);
 
-        if(result.length > 0 || result === 204) {
+        if(result.length >= 0) {
             return res.status(200).send(result);
-        } else if (result.length === 0 || result === 404) {
+        } else if (result === 'not found') {
             return res.status(404).send('Not Found');
         };
 
