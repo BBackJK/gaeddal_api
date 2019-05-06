@@ -12,10 +12,14 @@ export default async (req, res) => {
         if(!result || result === 'not found') {
             return res.status(404).send('Not Found');
         };
+        
+        if (result === 'already exist') {
+            return res.status(409).send('Already Exist');
+        };
 
-        return res.status(202).send(result);
+        return res.status(201).send(result);
 
     } catch (err) {
-        return res.status(500).send('internal server error');
+        return res.status(500).send('Internal Server Error');
     }
 }
