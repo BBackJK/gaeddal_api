@@ -1,4 +1,4 @@
-# gaeddal_api
+# Gaeddal_api
 
 This is **Rest API** for service that named "Gaeddal" of Team DDD.
 
