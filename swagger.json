@@ -409,6 +409,215 @@
                     }
                 }
             }
+        },
+        "/follow" : {
+            "get" : {
+                "tags" : [
+                    "Follow"
+                ],
+                "parameters" : [{
+                    "name" : "id",
+                    "in" : "params",
+                    "type" : "string",
+                    "required" : true
+                }],
+                "responses" : {
+                    "200" : {
+                        "schema" : {
+                            "type" : "object",
+                            "properties" : {
+                                "name" : {
+                                    "type" : "string"
+                                },
+                                "email" : {
+                                    "type" : "string"
+                                }
+                            }
+                        }
+                    },
+                    "404" : {
+                        "schema" : {
+                            "type" : "string"
+                        }
+                    },
+                    "500" : {
+                        "schema" : {
+                            "type" : "string"
+                        }
+                    }
+                }
+            },
+            "post" : {
+                "tags" : [
+                    "Follow"
+                ],
+                "requestBody" : [{
+                    "name" : "id",
+                    "in" : "body",
+                    "required" : true,
+                    "type" : "string"
+                },
+                {
+                    "name" : "email",
+                    "in" : "body",
+                    "required" : true,
+                    "type" : "string"
+                }],
+                "response" : {
+                    "201" : {
+                        "schema" : {
+                            "type" : "object",
+                            "properties" : {
+                                "acceptanced" : {
+                                    "type" : "boolean"
+                                },
+                                "removed" : {
+                                    "type" : "boolean"
+                                },
+                                "id" : {
+                                    "type" : "number"
+                                },
+                                "follow_id" : {
+                                    "type" : "number"
+                                },
+                                "target_id" : {
+                                    "type" : "number"
+                                },
+                                "followed_at" : {
+                                    "type" : "string"
+                                }
+                            }
+                        }
+                    },
+                    "400" : {
+                        "schema" : {
+                            "type" : "string"
+                        }
+                    },
+                    "404" : {
+                        "schema" : {
+                            "type" : "string"
+                        }
+                    },
+                    "409" : {
+                        "schema" : {
+                            "type" : "string"
+                        }
+                    },
+                    "500" : {
+                        "schema" : {
+                            "type" : "string"
+                        }
+                    }
+                }
+            },
+            "put" : {
+                "tags" : [
+                    "Follow"
+                ],
+                "requestBody" : [{
+                    "name" : "id",
+                    "in" : "body",
+                    "required" : true,
+                    "type" : "number"
+                },
+                {
+                    "name" : "email",
+                    "in" : "body",
+                    "required" : true,
+                    "type" : "string"
+                },
+                {
+                    "name" : "name",
+                    "in" : "body",
+                    "required" : true,
+                    "type" : "string"
+                }],
+                "response" : {
+                    "200" : {
+                        "schema" : {
+                            "type" : "object",
+                            "properties" : {
+                                "id" : {
+                                    "type" : "number"
+                                },
+                                "follow_id" : {
+                                    "type" : "number"
+                                },
+                                "target_id" : {
+                                    "type" : "number"
+                                },
+                                "acceptanced" : {
+                                    "type" : "boolean"
+                                },
+                                "removed" : {
+                                    "type" : "boolean"
+                                },
+                                "followed_at" : {
+                                    "type" : "string"
+                                },
+                                "acceptanced_at" : {
+                                    "type" : "string"
+                                },
+                                "removed_at" : {
+                                    "type" : "string"
+                                }
+                            }
+                        }
+                    },
+                    "400" : {
+                        "schema" : {
+                            "type" : "string"
+                        }
+                    },
+                    "404" : {
+                        "schema" : {
+                            "type" : "string"
+                        }
+                    },
+                    "500" : {
+                        "schema" : {
+                            "type" : "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/follow/my" : {
+            "get" : [
+                "Follow"
+            ],
+            "parameters" : [{
+                "name" : "id",
+                "in" : "params",
+                "type" : "string",
+                "required" : true
+            }],
+            "response" : {
+                "200" : {
+                    "schema" : {
+                        "type" : "obejct",
+                        "properties" : {
+                            "name" : {
+                                "type" : "string"
+                            },
+                            "email" : {
+                                "type" : "string"
+                            }
+                        }
+                    }
+                },
+                "404" : {
+                    "schema" : {
+                        "type" : "string"
+                    }
+                },
+                "500" : {
+                    "schema" : {
+                        "type" : "string"
+                    }
+                }
+            }
         }
     }
 }
