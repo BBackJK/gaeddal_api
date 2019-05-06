@@ -7,8 +7,8 @@ import putFollow from './putFollow';
 
 const router = express.Router();
 
-router.get('/:id', getFollow);
-router.get('/my/:id', getAllFollow);
+router.get('/:id', getAllFollow);
+router.get('/my/:id', getFollow);
 router.post('/', postFollow);
 router.put('/', putFollow);
 
