@@ -27,9 +27,9 @@ npm install
 
 As I said before, I have not used a docker yet. (similarly, docker-compose)
 
-so you must create a database named by "gaeddal".
+so you must create a database.
 
-if you don't like the name "gaeddal", change the code.
+and change the code.
 
 ```
 in src/db/db.js...
