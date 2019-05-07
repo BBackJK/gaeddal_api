@@ -63,87 +63,28 @@
                     }
                 }
             },
-            "get" : {
-                "tags" : [
-                    "User"
-                ],
-                "parameters" : [{
-                    "name" : "id",
-                    "in" : "params",
-                    "type" : "string",
-                    "required" : true
-                }],
-                "responses" : {
-                    "200" : {
-                        "schema" : {
-                            "type" : "object",
-                            "properties" : {
-                                "id" : {
-                                    "type" : "number"
-                                },
-                                "email" : {
-                                    "type" : "string"
-                                },
-                                "sns_email" : {
-                                    "type" : "string"
-                                },
-                                "name" : {
-                                    "type" : "string"
-                                },
-                                "auth_email" : {
-                                    "type" : "boolean"
-                                },
-                                "removed" : {
-                                    "type" : "boolean"
-                                },
-                                "created_at" : {
-                                    "type" : "string"
-                                },
-                                "auth_at" : {
-                                    "type" : "string"
-                                },
-                                "updated_at" : {
-                                    "type" : "string"
-                                },
-                                "removed_at" : {
-                                    "type" : "string"
-                                }                                
-                            }
-                        }
-                    },
-                    "404" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    },
-                    "500" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    }
-                }
-            },
             "post" : {
                 "tags" : [
                     "User"
                 ],
-                "requestBody" : [{
-                    "name" : "email",
+                "parameters" : [{
+                    "name" : "body",
                     "in" : "body",
                     "required" : true,
-                    "type" : "string"
-                },
-                {
-                    "name" : "sns_email",
-                    "in" : "body",
-                    "required" : true,
-                    "type" : "string"
-                },
-                {
-                    "name" : "name",
-                    "in" : "body",
-                    "required" : true,
-                    "type" : "string"
+                    "schema" : {
+                        "type" : "obejct",
+                        "properties" : {
+                            "email" : {
+                                "type" : "string"
+                            },
+                            "sns_email" : {
+                                "type" : "string"
+                            },
+                            "name" : {
+                                "type" : "string"
+                            }
+                        }
+                    }
                 }],
                 "response" : {
                     "201" : {
@@ -195,17 +136,21 @@
                 "tags" : [
                     "User"
                 ],
-                "requestBody" : [{
-                    "name" : "id",
+                "parameters" : [{
+                    "name" : "body",
                     "in" : "body",
                     "required" : true,
-                    "type" : "number"
-                },
-                {
-                    "name" : "name",
-                    "in" : "body",
-                    "required" : true,
-                    "type" : "string"
+                    "schema" : {
+                        "type" : "obejct",
+                        "properties" : {
+                            "id" : {
+                                "type" : "number"
+                            },
+                            "name" : {
+                                "type" : "string"
+                            }
+                        }
+                    }
                 }],
                 "response" : {
                     "200" : {
@@ -263,16 +208,85 @@
                 }
             }
         },
+        "/user/id" : {
+            "get" : {
+                "tags" : [
+                    "User"
+                ],
+                "parameters" : [{
+                    "name" : "id",
+                    "in" : "params",
+                    "type" : "string",
+                    "required" : true
+                }],
+                "responses" : {
+                    "200" : {
+                        "schema" : {
+                            "type" : "obejct",
+                            "properties" : {
+                                "id" : {
+                                    "type" : "number"
+                                },
+                                "email" : {
+                                    "type" : "string"
+                                },
+                                "sns_email" : {
+                                    "type" : "string"
+                                },
+                                "name" : {
+                                    "type" : "string"
+                                },
+                                "auth_email" : {
+                                    "type" : "string"
+                                },
+                                "removed" : {
+                                    "type" : "boolean"
+                                },
+                                "created_at" : {
+                                    "type" : "string"
+                                },
+                                "auth_at" : {
+                                    "type" : "string"
+                                },
+                                "updated_at" : {
+                                    "type" : "string"
+                                },
+                                "removed_at" : {
+                                    "type" : "string"
+                                }
+                            }
+                        }
+                    },
+                    "404" : {
+                        "schema" : {
+                            "type" : "string"
+                        }
+                    },
+                    "500" : {
+                        "schema" : {
+                            "type" : "string"
+                        }
+                    }
+                }
+            }
+        },
         "/auth" : {
             "post" : {
                 "tags" : [
                     "Auth"
                 ],
-                "requestBody" : [{
-                    "name" : "sns_email",
+                "parameters" : [{
+                    "name" : "body",
                     "in" : "body",
                     "required" : true,
-                    "type" : "string"
+                    "schema" : {
+                        "type" : "obejct",
+                        "properties" : {
+                            "sns_email" : {
+                                "type" : "string"
+                            }
+                        }
+                    }
                 }],
                 "response" : {
                     "201" : {
@@ -451,17 +465,21 @@
                 "tags" : [
                     "Follow"
                 ],
-                "requestBody" : [{
-                    "name" : "id",
+                "parameters" : [{
+                    "name" : "body",
                     "in" : "body",
                     "required" : true,
-                    "type" : "string"
-                },
-                {
-                    "name" : "email",
-                    "in" : "body",
-                    "required" : true,
-                    "type" : "string"
+                    "schema" : {
+                        "type" : "obejct",
+                        "properties" : {
+                            "id" : {
+                                "type" : "number"
+                            },
+                            "email" : {
+                                "type" : "string"
+                            }
+                        }
+                    }
                 }],
                 "response" : {
                     "201" : {
@@ -515,23 +533,24 @@
                 "tags" : [
                     "Follow"
                 ],
-                "requestBody" : [{
-                    "name" : "id",
+                "parameters" : [{
+                    "name" : "body",
                     "in" : "body",
                     "required" : true,
-                    "type" : "number"
-                },
-                {
-                    "name" : "email",
-                    "in" : "body",
-                    "required" : true,
-                    "type" : "string"
-                },
-                {
-                    "name" : "name",
-                    "in" : "body",
-                    "required" : true,
-                    "type" : "string"
+                    "schema" : {
+                        "type" : "obejct",
+                        "properties" : {
+                            "id" : {
+                                "type" : "number"
+                            },
+                            "email" : {
+                                "type" : "string"
+                            },
+                            "name" : {
+                                "type" : "string"
+                            }
+                        }
+                    }
                 }],
                 "response" : {
                     "200" : {
@@ -584,37 +603,39 @@
             }
         },
         "/follow/my" : {
-            "get" : [
+            "get" : {
+                "tags" : [
                 "Follow"
-            ],
-            "parameters" : [{
-                "name" : "id",
-                "in" : "params",
-                "type" : "string",
-                "required" : true
-            }],
-            "response" : {
-                "200" : {
-                    "schema" : {
-                        "type" : "obejct",
-                        "properties" : {
-                            "name" : {
-                                "type" : "string"
-                            },
-                            "email" : {
-                                "type" : "string"
+                ],
+                "parameters" : [{
+                    "name" : "id",
+                    "in" : "params",
+                    "type" : "string",
+                    "required" : true
+                }],
+                "response" : {
+                    "200" : {
+                        "schema" : {
+                            "type" : "obejct",
+                            "properties" : {
+                                "name" : {
+                                    "type" : "string"
+                                },
+                                "email" : {
+                                    "type" : "string"
+                                }
                             }
                         }
-                    }
-                },
-                "404" : {
-                    "schema" : {
-                        "type" : "string"
-                    }
-                },
-                "500" : {
-                    "schema" : {
-                        "type" : "string"
+                    },
+                    "404" : {
+                        "schema" : {
+                            "type" : "string"
+                        }
+                    },
+                    "500" : {
+                        "schema" : {
+                            "type" : "string"
+                        }
                     }
                 }
             }
