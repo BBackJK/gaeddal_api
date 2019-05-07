@@ -11,7 +11,7 @@ export default async (data) => {
     whereData.removed = 0;
     whereData.id = data.id;
 
-    const updateResult = await Users.update(updateData, {where : whereData })
+    await Users.update(updateData, {where : whereData });
 
     whereData.name = data.name;
 

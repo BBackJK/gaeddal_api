@@ -9,9 +9,7 @@ export default async (req, res) => {
 
         const result = await Users.put(req.body);
 
-        if(!result || !result.length === 0) return res.status(404).send('Not Found');
-
-        return res.status(200).send(result);
+        return !result ? res.status(404).send('Not Found') : res.status(200).send(result);
 
     } catch (err) {
         return res.status(500).send('Internal Server Error');
