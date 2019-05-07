@@ -26,7 +26,7 @@ export default async (data) => {
 
         const result = await Follow.create(followBody);
 
-        return result.dataValues;
+        return result;
 
     } else if(!findData) return 'not found';
 }
