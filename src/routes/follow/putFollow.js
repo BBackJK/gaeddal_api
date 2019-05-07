@@ -14,6 +14,6 @@ export default async (req, res) => {
         else if(result === 404) return res.status(404).send('Not Found');
 
     } catch (err) {
-        return res.status(500).send('internal server error');
+        return res.status(500).send('Internal Server Error');
     }
 }

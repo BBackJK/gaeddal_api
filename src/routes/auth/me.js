@@ -7,11 +7,11 @@ export default async (req, res) => {
 
         const result = await Auth.me(req.decoded);
 
-        if(!result || result === 'not user') return res.status(404).send('Not User');
+        if(!result || result === 'not user') return res.status(404).send('Not Found');
 
         return res.status(200).send(result);
 
     } catch (err) {
-        return res.status(500).send('internal server error');
+        return res.status(500).send('Internal Server Error');
     }
 }

@@ -12,6 +12,6 @@ export default async (req, res) => {
         };
 
     } catch (err) {
-        return res.status(500).send('internal server error');
+        return res.status(500).send('Internal Server Error');
     }
 }
