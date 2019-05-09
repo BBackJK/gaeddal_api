@@ -7,7 +7,7 @@ export default async (data) => {
     emailWhereData.email = data.email;
     emailWhereData.removed = 0;
 
-    const emailOverlap = await Users.findOne({where : emailWhereData});
+    const emailOverlap = await Users.findOne({ where : emailWhereData });
 
     if(emailOverlap !== null) return 'email';
 

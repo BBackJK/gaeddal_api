@@ -3,7 +3,7 @@ import { Users } from '../../controllers';
 export default async (req, res) => {
     try {
 
-        if(!req.body.email || !req.body.sns_email || !req.body.name) {
+        if(!req.body.email || !req.body.sns_email || !req.body.name || !req.body.phone) {
             return res.status(400).send('Bad Data');
         }
 

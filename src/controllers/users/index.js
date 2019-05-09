@@ -1,6 +1,6 @@
 import get from './getUser';
 import getById from './getUserById';
-import getByName from './getUserByName';
+import getByPhone from './getUserByPhone';
 import post from './postUser';
 import put from './putUser';
 import remove from './deleteUser';
@@ -9,7 +9,7 @@ import remove from './deleteUser';
 export default {
     get,
     getById,
-    getByName,
+    getByPhone,
     post,
     put,
     remove,

@@ -5,7 +5,7 @@ export default async (data) => {
     const whereData = {};
 
     whereData.removed = 0;
-    whereData.name = data.name;
+    whereData.phone = data.phone;
 
     return await Users.findAll({ where : whereData });
 

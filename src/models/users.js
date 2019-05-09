@@ -20,6 +20,10 @@ export default (sequelize, Sequelize) => sequelize.define(
             type : Sequelize.STRING,
             allowNull : false,
         },
+        phone : {
+            type : Sequelize.STRING,
+            allowNull : false,
+        },
         auth_email : {
             type : Sequelize.BOOLEAN,
             defaultValue : 0,

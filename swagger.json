@@ -270,13 +270,13 @@
                 }
             }
         },
-        "/user/search/{name}" : {
+        "/user/search/{phone}" : {
             "get" : {
                 "tags" : [
                     "User"
                 ],
                 "parameters" : [{
-                    "name" : "name",
+                    "name" : "phone",
                     "in" : "path",
                     "type" : "string",
                     "required" : true
