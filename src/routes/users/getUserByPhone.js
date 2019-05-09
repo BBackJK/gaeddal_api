@@ -3,7 +3,7 @@ import { Users } from '../../controllers';
 export default async (req, res) => {
     try {
 
-        const result = await Users.getByName(req.params);
+        const result = await Users.getByPhone(req.params);
         
         if(!result) return res.status(404).send('Not Found');
 
