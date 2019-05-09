@@ -28,7 +28,7 @@ export default async (data) => {
     whereData.id = insertArray;
     whereData.removed = 0;
     
-    const result = await Users.findAll({ attributes : ['name','email'], where : whereData });
+    const result = await Users.findAll({ attributes : ['id','name','email'], where : whereData });
 
     return result;
 }
