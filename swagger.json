@@ -675,7 +675,7 @@
                     "type" : "string",
                     "required" : true
                 }],
-                "response" : {
+                "responses" : {
                     "200" : {
                         "schema" : {
                             "type" : "obejct",
