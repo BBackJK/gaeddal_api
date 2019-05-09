@@ -1,9 +1,7 @@
 import { Users } from '../../models';
 
 export default async (data) => {
-
-    console.log('in controller');
-
+    
     const whereData = {};
     const updateData = {};
 
