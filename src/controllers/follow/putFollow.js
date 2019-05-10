@@ -24,7 +24,7 @@ export default async (data) => {
 
         const result = await Follow.update(updateData, { where : whereData });
 
-        return result > 0 ? Follow.findOne({where : whereData}) : 404;
+        return result > 0 ? Follow.findOne({where : whereData}) : 'not found';
 
-    } else return 204;
+    } else return 'not found';
 }

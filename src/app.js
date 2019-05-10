@@ -10,29 +10,29 @@ import routers from './routes/index';
 import db from './db/db';
 import apiDocs from '../swagger.json';
 
-dotenv.config({path : 'config.env'});
+dotenv.config({ path: 'config.env' });
 
 const app = express();
 
-app.use (
-    cors(),
-    bodyParser.json(),
-    bodyParser.urlencoded({extended : true}),
-    compression(),
-    helmet()
-)
+app.use(
+  cors(),
+  bodyParser.json(),
+  bodyParser.urlencoded({ extended: true }),
+  compression(),
+  helmet(),
+);
 
 app.use('/docs', swagger.serve, swagger.setup(apiDocs));
 app.use('/', routers);
 
 db.sequelize.sync()
-    .then(() => {
-        console.log('sequelize sync success');
-    })
-    .catch(err => {
-        console.error(err);
-    });
+  .then(() => {
+    console.log('sequelize sync success');
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 
 app.listen(process.env.SERVER_PORT, () => {
-    console.log(`express server start on port ${process.env.SERVER_PORT}`);
+  console.log(`express server start on port ${process.env.SERVER_PORT}`);
 });

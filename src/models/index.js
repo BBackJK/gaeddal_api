@@ -11,38 +11,38 @@ const Messages = messages(db.sequelize, db.Sequelize);
 const Send = send(db.sequelize, db.Sequelize);
 
 Users.hasMany(Follow, {
-    foreignKey : 'follow_id',
-    sourceKey : 'id'
+  foreignKey: 'follow_id',
+  sourceKey: 'id',
 });
 
 Users.hasMany(Follow, {
-    foreignKey : 'target_id',
-    sourceKey : 'id'
+  foreignKey: 'target_id',
+  sourceKey: 'id',
 });
 
 Users.hasMany(Messages, {
-    foreignKey : 'user_id',
-    sourceKey : 'id'
+  foreignKey: 'user_id',
+  sourceKey: 'id',
 });
 
 Users.hasMany(Send, {
-    foreignKey : 'send_id',
-    sourceKey : 'id'
+  foreignKey: 'send_id',
+  sourceKey: 'id',
 });
 
 Users.hasMany(Send, {
-    foreignKey : 'recieve_id',
-    sourceKey : 'id'
+  foreignKey: 'recieve_id',
+  sourceKey: 'id',
 });
 
 Send.belongsTo(Users, {
-    foreignKey : 'recieve_id',
-    targetKey : 'id'
+  foreignKey: 'recieve_id',
+  targetKey: 'id',
 });
 
 export {
-    Users,
-    Follow,
-    Messages,
-    Send
+  Users,
+  Follow,
+  Messages,
+  Send,
 };
