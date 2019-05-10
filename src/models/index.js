@@ -35,11 +35,6 @@ Users.hasMany(Send, {
   sourceKey: 'id',
 });
 
-Send.belongsTo(Users, {
-  foreignKey: 'recieve_id',
-  targetKey: 'id',
-});
-
 export {
   Users,
   Follow,
