@@ -1,9 +1,9 @@
 import { Users, Follow } from '../../models';
 
-export default async (data) => {
+export default async (decodeData, bodyData) => {
   const userFindData = {};
 
-  userFindData.email = data.email;
+  userFindData.email = bodyData.email;
   userFindData.removed = 0;
 
   const findData = await Users.findOne({
@@ -14,14 +14,14 @@ export default async (data) => {
   if (findData) {
     const followBody = {};
 
-    followBody.target_id = data.id;
+    followBody.target_id = decodeData.id;
     followBody.follow_id = findData.dataValues.id;
 
     const preResult = await Follow.findOne({ where: followBody });
 
     if (preResult) return 'already exist';
 
-    followBody.follow_id = data.id;
+    followBody.follow_id = decodeData.id;
     followBody.target_id = findData.dataValues.id;
     followBody.followed_at = new Date();
 

@@ -10,10 +10,10 @@ import { Util } from '../../util';
 
 const router = express.Router();
 
-router.get('/:id', getAllFollow);
-router.get('/my/:id', getFollow);
-router.post('/', postFollow);
-router.put('/', putFollow);
+router.get('/', Util.isLoggedIn, getAllFollow);
+router.get('/my', Util.isLoggedIn, getFollow);
+router.post('/', Util.isLoggedIn, postFollow);
+router.put('/', Util.isLoggedIn, putFollow);
 router.delete('/:id', Util.isLoggedIn, deleteFollow);
 
 export default router;

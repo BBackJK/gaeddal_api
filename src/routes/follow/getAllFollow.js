@@ -2,7 +2,9 @@ import { Follow } from '../../controllers';
 
 export default async (req, res) => {
   try {
-    const result = await Follow.getAll(req.params);
+    if (!req.decoded) return res.status(400).send('Bad Data');
+
+    const result = await Follow.getAll(req.decoded);
 
     if (!result) return res.status(404).send('Not Found');
 
