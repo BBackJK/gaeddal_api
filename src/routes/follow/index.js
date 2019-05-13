@@ -2,7 +2,7 @@ import express from 'express';
 
 import postFollow from './postFollow';
 import getFollow from './getFollow';
-import getAllFollow from './getFollows';
+import getAllFollow from './getAllFollow';
 import putFollow from './putFollow';
 import deleteFollow from './deleteFollow';
 
