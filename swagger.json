@@ -13,9 +13,9 @@
         "tags": ["User"],
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "type": "number",
+            "name": "x-access-token",
+            "in": "header",
+            "type": "string",
             "required": true
           }
         ],
@@ -57,6 +57,16 @@
               }
             }
           },
+          "400": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "schema": {
+              "type": "string"
+            }
+          },
           "404": {
             "schema": {
               "type": "string"
@@ -92,7 +102,7 @@
             }
           }
         ],
-        "response": {
+        "responses": {
           "201": {
             "schema": {
               "type": "object",
@@ -148,17 +158,20 @@
             "schema": {
               "type": "object",
               "properties": {
-                "id": {
-                  "type": "number"
-                },
                 "name": {
                   "type": "string"
                 }
               }
             }
+          },
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "type": "string",
+            "required": true
           }
         ],
-        "response": {
+        "responses": {
           "200": {
             "schema": {
               "type": "object",
@@ -197,6 +210,11 @@
             }
           },
           "400": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
             "schema": {
               "type": "string"
             }
@@ -367,7 +385,7 @@
             }
           }
         ],
-        "response": {
+        "responses": {
           "201": {
             "schema": {
               "type": "string"
@@ -508,8 +526,8 @@
         "tags": ["Follow"],
         "parameters": [
           {
-            "name": "id",
-            "in": "params",
+            "name": "x-access-token",
+            "in": "header",
             "type": "string",
             "required": true
           }
@@ -526,6 +544,16 @@
                   "type": "string"
                 }
               }
+            }
+          },
+          "400": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "schema": {
+              "type": "string"
             }
           },
           "404": {
@@ -550,17 +578,20 @@
             "schema": {
               "type": "object",
               "properties": {
-                "id": {
-                  "type": "number"
-                },
                 "email": {
                   "type": "string"
                 }
               }
             }
+          },
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "type": "string",
+            "required": true
           }
         ],
-        "response": {
+        "responses": {
           "201": {
             "schema": {
               "type": "object",
@@ -587,6 +618,11 @@
             }
           },
           "400": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
             "schema": {
               "type": "string"
             }
@@ -618,9 +654,6 @@
             "schema": {
               "type": "object",
               "properties": {
-                "id": {
-                  "type": "number"
-                },
                 "email": {
                   "type": "string"
                 },
@@ -629,9 +662,15 @@
                 }
               }
             }
+          },
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "required": true,
+            "type": "string"
           }
         ],
-        "response": {
+        "responses": {
           "200": {
             "schema": {
               "type": "object",
@@ -756,8 +795,8 @@
         "tags": ["Follow"],
         "parameters": [
           {
-            "name": "id",
-            "in": "params",
+            "name": "x-access-token",
+            "in": "header",
             "type": "string",
             "required": true
           }
@@ -767,13 +806,46 @@
             "schema": {
               "type": "object",
               "properties": {
-                "name": {
+                "id": {
+                  "type": "number"
+                },
+                "follow_id": {
+                  "type": "number"
+                },
+                "target_id": {
+                  "type": "number"
+                },
+                "acceptanced": {
+                  "type": "boolean"
+                },
+                "followed_at": {
                   "type": "string"
                 },
-                "email": {
-                  "type": "string"
+                "user": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
+            }
+          },
+          "400": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "schema": {
+              "type": "string"
             }
           },
           "404": {

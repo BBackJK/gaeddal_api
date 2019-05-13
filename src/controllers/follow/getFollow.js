@@ -1,37 +1,22 @@
 import { Users, Follow } from '../../models';
 
 export default async (data) => {
-  const followFindData = {};
+  Follow.belongsTo(Users, {
+    foreignKey: 'follow_id',
+    targetKey: 'id',
+  });
 
-  followFindData.target_id = data.id;
-  followFindData.acceptanced = 0;
-  followFindData.removed = 0;
-
-  const findData = await Follow.findAll({
-    attributes: ['follow_id'],
-    where: followFindData,
+  const result = await Follow.findAll({
+    attributes: ['id', 'follow_id', 'target_id', 'acceptanced', 'followed_at'],
+    include: [
+      {
+        model: Users,
+        attributes: ['id', 'email', 'name'],
+      },
+    ],
+    where: { target_id: data.id, removed: 0, acceptanced: 0 },
     order: [['followed_at', 'DESC']],
   });
 
-  if (findData.length > 0) {
-    const insertArray = [];
-
-    for (const i in findData) {
-      insertArray.push(findData[i].dataValues.follow_id);
-    }
-
-    const whereData = {};
-
-    whereData.id = insertArray;
-    whereData.removed = 0;
-
-    const result = await Users.findAll({
-      attributes: ['id', 'name', 'email'],
-      where: whereData,
-    });
-
-    return result.length > 0 ? result : 'not found';
-  }
-
-  return findData;
+  return result;
 };

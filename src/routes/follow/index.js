@@ -12,7 +12,7 @@ const router = express.Router();
 
 router.get('/', Util.isLoggedIn, getAllFollow);
 router.get('/my', Util.isLoggedIn, getFollow);
-router.post('/', postFollow);
+router.post('/', Util.isLoggedIn, postFollow);
 router.put('/', Util.isLoggedIn, putFollow);
 router.delete('/:id', Util.isLoggedIn, deleteFollow);
 

@@ -3,8 +3,6 @@ import jwt from 'jsonwebtoken';
 const util = {};
 
 util.isLoggedIn = (req, res, next) => {
-  console.log('in jwt is logged in');
-
   const token = req.headers['x-access-token'] || req.query.token;
 
   if (!token) {

@@ -1,15 +1,15 @@
 import { Follow } from '../../models';
 import db from '../../db/db';
 
-export default async (myData, targetData) => {
+export default async (decodeData, paramData) => {
   const { Op } = db.Sequelize;
 
   const whereData = {
     acceptanced: 1,
     removed: 0,
     [Op.and]: [
-      { [Op.or]: [{ follow_id: myData.id }, { follow_id: targetData.id }] },
-      { [Op.or]: [{ target_id: targetData.id }, { target_id: myData.id }] },
+      { [Op.or]: [{ follow_id: decodeData.id }, { follow_id: decodeData.id }] },
+      { [Op.or]: [{ target_id: paramData.id }, { target_id: paramData.id }] },
     ],
   };
 

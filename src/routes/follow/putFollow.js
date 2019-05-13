@@ -2,7 +2,12 @@ import { Follow } from '../../controllers';
 
 export default async (req, res) => {
   try {
-    if (!req.decoded || !req.body.email || !req.body.name) {
+    if (
+      !req.decoded
+      || !req.body.user_id
+      || !req.body.email
+      || !req.body.name
+    ) {
       return res.status(400).send('Bad data');
     }
 
