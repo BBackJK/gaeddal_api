@@ -1,5 +1,3 @@
 import Util from './jwt';
 
-export {
-    Util
-}
+export default Util;

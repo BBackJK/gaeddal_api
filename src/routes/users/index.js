@@ -6,7 +6,7 @@ import postUser from './postUser';
 import putUser from './putUser';
 import removeUser from './deleteUser';
 
-import { Util } from '../../util';
+import Util from '../../util';
 
 const router = express.Router();
 
