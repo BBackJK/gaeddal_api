@@ -1,31 +1,28 @@
 import { Users, Follow } from '../../models';
 
 export default async (data) => {
+  const followFindData = {};
 
-    const followFindData = {};
+  followFindData.target_id = data.id;
+  followFindData.acceptanced = 0;
+  followFindData.removed = 0;
 
-    followFindData.target_id = data.id;
-    followFindData.acceptanced = 0;
-    followFindData.removed = 0;
+  const findData = await Follow.findAll({ attributes: ['follow_id'], where: followFindData, order: [['followed_at', 'DESC']] });
 
-    const findData = await Follow.findAll({ attributes : ['follow_id'], where : followFindData, order : [['followed_at','DESC']]});
+  if (findData.length > 0) {
+    const insertArray = [];
 
-    if(findData.length > 0) {
+    for (const i in findData) {
+      insertArray.push(findData[i].dataValues.follow_id);
+    }
 
-        const insertArray = [];
+    const whereData = {};
 
-        for (let i in findData) {
-            insertArray.push(findData[i].dataValues.follow_id);
-        }
+    whereData.id = insertArray;
+    whereData.removed = 0;
 
-        const whereData = {};
+    const result = await Users.findAll({ attributes: ['id', 'name', 'email'], where: whereData });
 
-        whereData.id = insertArray;
-        whereData.removed = 0;
-
-        const result = await Users.findAll({ attributes : ['id','name','email'], where : whereData });
-
-        return result.length > 0 ? result : 'not found';
-
-    } else return findData;
-}
+    return result.length > 0 ? result : 'not found';
+  } return findData;
+};

@@ -3,27 +3,26 @@ import jwt from 'jsonwebtoken';
 import { Users } from '../../models';
 
 export default async (data) => {
+  const whereData = {};
 
-    const whereData = {};
+  whereData.removed = 0;
+  whereData.sns_email = data;
 
-    whereData.removed = 0;
-    whereData.sns_email = data;
+  const result = await Users.findOne({ where: whereData });
 
-    const result = await Users.findOne({ where : whereData })
+  if (!result) return 'email';
 
-    if(!result) return 'email';
+  const payload = {
+    id: result.dataValues.id,
+    email: result.dataValues.email,
+    sns_email: result.dataValues.sns_email,
+  };
 
-    const payload = { 
-        id : result.dataValues.id,
-        email : result.dataValues.email,
-        sns_email : result.dataValues.sns_email
-    }
+  const secretOrPrivateKey = process.env.JWT_SECRET;
 
-    const secretOrPrivateKey = process.env.JWT_SECRET;
-    
-    const options = { expiresIn : 60*60*24 };
+  const options = { expiresIn: 60 * 60 * 24 };
 
-    const token = jwt.sign(payload, secretOrPrivateKey, options);
+  const token = jwt.sign(payload, secretOrPrivateKey, options);
 
-    return token;
+  return token;
 };

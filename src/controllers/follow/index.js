@@ -5,9 +5,9 @@ import put from './putFollow';
 import remove from './deleteFollow';
 
 export default {
-    post,
-    get,
-    getAll,
-    put,
-    remove
-}
+  post,
+  get,
+  getAll,
+  put,
+  remove,
+};

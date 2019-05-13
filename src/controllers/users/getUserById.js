@@ -1,12 +1,12 @@
 import { Users } from '../../models';
 
 export default async (data) => {
+  const whereData = {};
 
-    const whereData = {}; 
+  whereData.removed = 0;
+  whereData.id = data.id;
 
-    whereData.removed = 0;
-    whereData.id = data.id;
+  const result = await Users.findOne({ where: whereData });
 
-    return await Users.findOne({ where : whereData });
-
-}
+  return result;
+};

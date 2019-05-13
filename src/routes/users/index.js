@@ -10,8 +10,8 @@ import { Util } from '../../util';
 
 const router = express.Router();
 
-router.get('/:id', getUserById);
-router.get('/search/:phone', getUserByPhone);
+router.get('/', Util.isLoggedIn, getUserById);
+router.get('/:phone', getUserByPhone);
 router.post('/', postUser);
 router.put('/', putUser);
 router.delete('/', Util.isLoggedIn, removeUser);

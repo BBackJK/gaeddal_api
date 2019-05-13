@@ -3,6 +3,9 @@
   "extends": "airbnb-base",
   "plugins": ["flowtype"],
   "rules": {
-    "linebreak-style": 0
+    "linebreak-style": 0,
+    "guard-for-in": 0,
+    "no-restricted-syntax": 0,
+    "eqeqeq": 0
   }
 }

@@ -1,13 +1,12 @@
 import { Messages } from '../../models';
 
 export default async (data) => {
+  const whereData = {};
 
-    const whereData = {};
+  whereData.removed = 0;
+  whereData.user_id = data.id;
 
-    whereData.removed = 0;
-    whereData.user_id = data.id;
+  const result = await Messages.findAll({ where: whereData });
 
-    const result = await Messages.findAll({ where : whereData });
-
-    return result;
-}
+  return result;
+};

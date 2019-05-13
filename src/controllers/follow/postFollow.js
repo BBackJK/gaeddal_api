@@ -1,32 +1,34 @@
 import { Users, Follow } from '../../models';
 
 export default async (data) => {
+  const userFindData = {};
 
-    const userFindData = {};
+  userFindData.email = data.email;
+  userFindData.removed = 0;
 
-    userFindData.email = data.email;
-    userFindData.removed = 0;
+  const findData = await Users.findOne({
+    attributes: ['id'],
+    where: userFindData,
+  });
 
-    const findData = await Users.findOne({ attributes : ['id'], where : userFindData });
+  if (findData) {
+    const followBody = {};
 
-    if(findData) {
+    followBody.target_id = data.id;
+    followBody.follow_id = findData.dataValues.id;
 
-        const followBody = {};
+    const preResult = await Follow.findOne({ where: followBody });
 
-        followBody.target_id = data.id;
-        followBody.follow_id = findData.dataValues.id;
+    if (preResult) return 'already exist';
 
-        const pre_result = await Follow.findOne({ where : followBody });
+    followBody.follow_id = data.id;
+    followBody.target_id = findData.dataValues.id;
+    followBody.followed_at = new Date();
 
-        if(pre_result) return 'already exist';
+    const result = await Follow.create(followBody);
 
-        followBody.follow_id = data.id;
-        followBody.target_id = findData.dataValues.id;
-        followBody.followed_at = new Date();
+    return result;
+  }
 
-        const result = await Follow.create(followBody);
-
-        return result;
-
-    } else if(!findData) return 'not found';
-}
+  return 'not found';
+};

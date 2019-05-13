@@ -3,7 +3,7 @@ import getBySend from './getSendBySend';
 import getByRecieve from './getSendByRecieve';
 
 export default {
-    getBySend,
-    getByRecieve,
-    post,
-}
+  getBySend,
+  getByRecieve,
+  post,
+};
