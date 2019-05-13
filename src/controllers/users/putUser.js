@@ -1,18 +1,18 @@
 import { Users } from '../../models';
 
-export default async (data) => {
+export default async (decodeData, bodyData) => {
   const whereData = {};
   const updateData = {};
 
   updateData.updated_at = new Date();
-  updateData.name = data.name;
+  updateData.name = bodyData.name;
 
   whereData.removed = 0;
-  whereData.id = data.id;
+  whereData.id = decodeData.id;
 
   await Users.update(updateData, { where: whereData });
 
-  whereData.name = data.name;
+  whereData.name = bodyData.name;
 
   const result = await Users.findOne({ where: whereData });
 

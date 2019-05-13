@@ -13,7 +13,7 @@ const router = express.Router();
 router.get('/', Util.isLoggedIn, getUserById);
 router.get('/:phone', getUserByPhone);
 router.post('/', postUser);
-router.put('/', putUser);
+router.put('/', Util.isLoggedIn, putUser);
 router.delete('/', Util.isLoggedIn, removeUser);
 
 export default router;

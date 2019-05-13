@@ -2,7 +2,9 @@ import { Users } from '../../controllers';
 
 export default async (req, res) => {
   try {
-    const result = await Users.getById(req.params);
+    if (!req.decoded) return res.status(400).send('Bad Data');
+
+    const result = await Users.getById(req.decoded);
 
     if (!result || result.length === 0) {
       return res.status(404).send('Not Found');
