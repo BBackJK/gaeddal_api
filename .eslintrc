@@ -1,7 +1,8 @@
 {
-    "parser" : "babel-eslint",
-    "extends" : "airbnb-base",
-    "plugins" : [
-        "flowtype"
-    ]
+  "parser": "babel-eslint",
+  "extends": "airbnb-base",
+  "plugins": ["flowtype"],
+  "rules": {
+    "linebreak-style": 0
+  }
 }

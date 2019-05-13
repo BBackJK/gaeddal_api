@@ -1,6 +1,5 @@
 import express from 'express';
 
-import getUser from './getUser';
 import getUserById from './getUserById';
 import getUserByPhone from './getUserByPhone';
 import postUser from './postUser';
@@ -11,7 +10,6 @@ import { Util } from '../../util';
 
 const router = express.Router();
 
-router.get('/', getUser);
 router.get('/:id', getUserById);
 router.get('/search/:phone', getUserByPhone);
 router.post('/', postUser);

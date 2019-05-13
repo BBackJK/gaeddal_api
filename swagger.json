@@ -1,849 +1,793 @@
 {
-    "swagger" : "2.0",
-    "info" : {
-        "title" : "Gaeddal api",
-        "description" : "gaeddal api document",
-        "version" : "1.0.0"
-    },
-    "host" : "localhost:8000",
-    "basePath": "/",
-    "paths" : {
-        "/user" : {
-            "get" : {
-                "tags" : [
-                    "User"
-                ],
-                "responses" : {
-                    "200" : {
-                        "schema" : {
-                            "type" : "object",
-                            "properties" : {
-                                "id" : {
-                                    "type" : "number"
-                                },
-                                "email" : {
-                                    "type" : "string"
-                                },
-                                "sns_email" : {
-                                    "type" : "string"
-                                },
-                                "name" : {
-                                    "type" : "string"
-                                },
-                                "auth_email" : {
-                                    "type" : "boolean"
-                                },
-                                "removed" : {
-                                    "type" : "boolean"
-                                },
-                                "created_at" : {
-                                    "type" : "string"
-                                },
-                                "auth_at" : {
-                                    "type" : "string"
-                                },
-                                "updated_at" : {
-                                    "type" : "string"
-                                },
-                                "removed_at" : {
-                                    "type" : "string"
-                                }
-                            }
-                        }
-                    },
-                    "404" : {
-                        "schema" : {
-                            "type" : "string"
-                        }                        
-                    },
-                    "500" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    }
-                }
-            },
-            "post" : {
-                "tags" : [
-                    "User"
-                ],
-                "parameters" : [{
-                    "name" : "body",
-                    "in" : "body",
-                    "required" : true,
-                    "schema" : {
-                        "type" : "object",
-                        "properties" : {
-                            "email" : {
-                                "type" : "string"
-                            },
-                            "sns_email" : {
-                                "type" : "string"
-                            },
-                            "name" : {
-                                "type" : "string"
-                            }
-                        }
-                    }
-                }],
-                "response" : {
-                    "201" : {
-                        "schema" : {
-                            "type" : "object",
-                            "properties" : {
-                                "auth_email" : {
-                                    "type" : "boolean"
-                                },
-                                "removed" : {
-                                    "type" : "boolean"
-                                },
-                                "id" : {
-                                    "type" : "number"
-                                },
-                                "email" : {
-                                    "type" : "string"
-                                },
-                                "sns_email" : {
-                                    "type" : "string"
-                                },
-                                "name" : {
-                                    "type" : "string"
-                                },
-                                "created_at" : {
-                                    "type" : "string"
-                                }
-                            }
-                        }
-                    },
-                    "400" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    },
-                    "409" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    },
-                    "500" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    }
-                }
-            },
-            "put" : {
-                "tags" : [
-                    "User"
-                ],
-                "parameters" : [{
-                    "name" : "body",
-                    "in" : "body",
-                    "required" : true,
-                    "schema" : {
-                        "type" : "object",
-                        "properties" : {
-                            "id" : {
-                                "type" : "number"
-                            },
-                            "name" : {
-                                "type" : "string"
-                            }
-                        }
-                    }
-                }],
-                "response" : {
-                    "200" : {
-                        "schema" : {
-                            "type" : "object",
-                            "properties" : {
-                                "id" : {
-                                    "type" : "number"
-                                },
-                                "email" : {
-                                    "type" : "string"
-                                },
-                                "sns_email" : {
-                                    "type" : "string"
-                                },
-                                "name" : {
-                                    "type" : "string"
-                                },
-                                "auth_email" : {
-                                    "type" : "boolean"
-                                },
-                                "removed" : {
-                                    "type" : "boolean"
-                                },
-                                "created_at" : {
-                                    "type" : "string"
-                                },
-                                "auth_at" : {
-                                    "type" : "string"
-                                },
-                                "updated_at" : {
-                                    "type" : "string"
-                                },
-                                "removed_at" : {
-                                    "type" : "string"
-                                }
-                            }
-                        }
-                    },
-                    "400" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    },
-                    "404" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    },
-                    "500" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    }
-                }
-            },
-            "delete" : {
-                "tags" : [
-                    "User"
-                ],
-                "parameters" : [{
-                    "name" : "x-access-token",
-                    "in" : "header",
-                    "type" : "string",
-                    "required" : true
-                }],
-                "responses" : {
-                    "200" : {
-                        "schema" : {
-                            "type" : "object",
-                            "properties" : {
-                                "id" : {
-                                    "type" : "number"
-                                },
-                                "email" : {
-                                    "type" : "string"
-                                },
-                                "sns_email" : {
-                                    "type" : "string"
-                                },
-                                "name" : {
-                                    "type" : "string"
-                                },
-                                "phone" : {
-                                    "type" : "string"
-                                },
-                                "auth_email" : {
-                                    "type" : "boolean"
-                                },
-                                "removed" : {
-                                    "type" : "boolean"
-                                },
-                                "created_at" : {
-                                    "type" : "string"
-                                },
-                                "auth_at" : {
-                                    "type" : "string"
-                                },
-                                "updated_at" : {
-                                    "type" : "string"
-                                },
-                                "removed_at" : {
-                                    "type" : "string"
-                                }
-                            }
-                        }
-                    },
-                    "400" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    },
-                    "401" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    },
-                    "404" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    },
-                    "500" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    }
-                }
-            }
-        },
-        "/user/{id}" : {
-            "get" : {
-                "tags" : [
-                    "User"
-                ],
-                "parameters" : [{
-                    "name" : "id",
-                    "in" : "path",
-                    "type" : "number",
-                    "required" : true
-                }],
-                "responses" : {
-                    "200" : {
-                        "schema" : {
-                            "type" : "object",
-                            "properties" : {
-                                "id" : {
-                                    "type" : "number"
-                                },
-                                "email" : {
-                                    "type" : "string"
-                                },
-                                "sns_email" : {
-                                    "type" : "string"
-                                },
-                                "name" : {
-                                    "type" : "string"
-                                },
-                                "auth_email" : {
-                                    "type" : "string"
-                                },
-                                "removed" : {
-                                    "type" : "boolean"
-                                },
-                                "created_at" : {
-                                    "type" : "string"
-                                },
-                                "auth_at" : {
-                                    "type" : "string"
-                                },
-                                "updated_at" : {
-                                    "type" : "string"
-                                },
-                                "removed_at" : {
-                                    "type" : "string"
-                                }
-                            }
-                        }
-                    },
-                    "404" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    },
-                    "500" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    }
-                }
-            }
-        },
-        "/user/search/{phone}" : {
-            "get" : {
-                "tags" : [
-                    "User"
-                ],
-                "parameters" : [{
-                    "name" : "phone",
-                    "in" : "path",
-                    "type" : "string",
-                    "required" : true
-                }],
-                "responses" : {
-                    "200" : {
-                        "schema" : {
-                            "type" : "object",
-                            "properties" : {
-                                "id" : {
-                                    "type" : "number"
-                                },
-                                "email" : {
-                                    "type" : "string"
-                                },
-                                "sns_email" : {
-                                    "type" : "string"
-                                },
-                                "name" : {
-                                    "type" : "string"
-                                },
-                                "auth_email" : {
-                                    "type" : "boolean"
-                                },
-                                "removed" : {
-                                    "type" : "boolean"
-                                },
-                                "created_at" : {
-                                    "type" : "string"
-                                    },
-                                "auth_at" : {
-                                    "type" : "string"
-                                },
-                                "updated_at" : {
-                                    "type" : "string"
-                                },
-                                "removed_at" : {
-                                    "type" : "string"
-                                }
-                            }
-                        }
-                    },
-                    "404" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    },
-                    "500" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    }
-                }
-            }
-        },
-        "/auth" : {
-            "post" : {
-                "tags" : [
-                    "Auth"
-                ],
-                "parameters" : [{
-                    "name" : "body",
-                    "in" : "body",
-                    "required" : true,
-                    "schema" : {
-                        "type" : "object",
-                        "properties" : {
-                            "sns_email" : {
-                                "type" : "string"
-                            }
-                        }
-                    }
-                }],
-                "response" : {
-                    "201" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    },
-                    "400" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    },
-                    "404" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    },
-                    "500" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    }
-                }
-            }
-        },
-        "/auth/me" : {
-            "get" : {
-                "tags" : [
-                    "Auth"
-                ],
-                "parameters" : [{
-                    "name" : "x-access-token",
-                    "in" : "header",
-                    "type" : "string",
-                    "required" : true
-                }],
-                "responses" : {
-                    "200" : {
-                        "schema" : {
-                            "type" : "object",
-                            "properties" : {
-                                "id" : {
-                                    "type" : "number"
-                                },
-                                "email" : {
-                                    "type" : "string"
-                                },
-                                "sns_email" : {
-                                    "type" : "string"
-                                },
-                                "name" : {
-                                    "type" : "string"
-                                },
-                                "auth_email" : {
-                                    "type" : "boolean"
-                                },
-                                "removed" : {
-                                    "type" : "boolean"
-                                },
-                                "created_at" : {
-                                    "type" : "string"
-                                },
-                                "auth_at" : {
-                                    "type" : "string"
-                                },
-                                "updated_at" : {
-                                    "type" : "string"
-                                },
-                                "removed_at" : {
-                                    "type" : "string"
-                                }
-                            }
-                        }
-                    },
-                    "400" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    },
-                    "401" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    },
-                    "404" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    },
-                    "500" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    }
-                }
-            }
-        },
-        "/auth/refresh" : {
-            "get" : {
-                "tags" : [
-                    "Auth"
-                ],
-                "parameters" : [{
-                    "name" : "x-access-token",
-                    "in" : "header",
-                    "type" : "string",
-                    "required" : true
-                }],
-                "responses" : {
-                    "200" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    },
-                    "400" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    },
-                    "401" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    },
-                    "404" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    },
-                    "500" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    }
-                }
-            }
-        },
-        "/follow" : {
-            "get" : {
-                "tags" : [
-                    "Follow"
-                ],
-                "parameters" : [{
-                    "name" : "id",
-                    "in" : "params",
-                    "type" : "string",
-                    "required" : true
-                }],
-                "responses" : {
-                    "200" : {
-                        "schema" : {
-                            "type" : "object",
-                            "properties" : {
-                                "name" : {
-                                    "type" : "string"
-                                },
-                                "email" : {
-                                    "type" : "string"
-                                }
-                            }
-                        }
-                    },
-                    "404" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    },
-                    "500" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    }
-                }
-            },
-            "post" : {
-                "tags" : [
-                    "Follow"
-                ],
-                "parameters" : [{
-                    "name" : "body",
-                    "in" : "body",
-                    "required" : true,
-                    "schema" : {
-                        "type" : "object",
-                        "properties" : {
-                            "id" : {
-                                "type" : "number"
-                            },
-                            "email" : {
-                                "type" : "string"
-                            }
-                        }
-                    }
-                }],
-                "response" : {
-                    "201" : {
-                        "schema" : {
-                            "type" : "object",
-                            "properties" : {
-                                "acceptanced" : {
-                                    "type" : "boolean"
-                                },
-                                "removed" : {
-                                    "type" : "boolean"
-                                },
-                                "id" : {
-                                    "type" : "number"
-                                },
-                                "follow_id" : {
-                                    "type" : "number"
-                                },
-                                "target_id" : {
-                                    "type" : "number"
-                                },
-                                "followed_at" : {
-                                    "type" : "string"
-                                }
-                            }
-                        }
-                    },
-                    "400" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    },
-                    "404" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    },
-                    "409" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    },
-                    "500" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    }
-                }
-            },
-            "put" : {
-                "tags" : [
-                    "Follow"
-                ],
-                "parameters" : [{
-                    "name" : "body",
-                    "in" : "body",
-                    "required" : true,
-                    "schema" : {
-                        "type" : "object",
-                        "properties" : {
-                            "id" : {
-                                "type" : "number"
-                            },
-                            "email" : {
-                                "type" : "string"
-                            },
-                            "name" : {
-                                "type" : "string"
-                            }
-                        }
-                    }
-                }],
-                "response" : {
-                    "200" : {
-                        "schema" : {
-                            "type" : "object",
-                            "properties" : {
-                                "id" : {
-                                    "type" : "number"
-                                },
-                                "follow_id" : {
-                                    "type" : "number"
-                                },
-                                "target_id" : {
-                                    "type" : "number"
-                                },
-                                "acceptanced" : {
-                                    "type" : "boolean"
-                                },
-                                "removed" : {
-                                    "type" : "boolean"
-                                },
-                                "followed_at" : {
-                                    "type" : "string"
-                                },
-                                "acceptanced_at" : {
-                                    "type" : "string"
-                                },
-                                "removed_at" : {
-                                    "type" : "string"
-                                }
-                            }
-                        }
-                    },
-                    "400" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    },
-                    "404" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    },
-                    "500" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    }
-                }
-            },
-            "delete" : {
-                "tags" : [
-                    "Follow"
-                ],
-                "parameters" : [{
-                    "name" : "id",
-                    "in" : "path",
-                    "type" : "number",
-                    "required" : true
+  "swagger": "2.0",
+  "info": {
+    "title": "Gaeddal api",
+    "description": "gaeddal api document",
+    "version": "1.0.0"
+  },
+  "host": "localhost:8000",
+  "basePath": "/",
+  "paths": {
+    "/user": {
+      "get": {
+        "tags": ["User"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "number",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
                 },
-                {
-                    "name" : "x-access-token",
-                    "in" : "header",
-                    "type" : "string",
-                    "required" : true
-                }],
-                "responses" : {
-                    "200" : {
-                        "schema" : {
-                            "type" : "object",
-                            "properties" : {
-                                "id" : {
-                                    "type" : "number"
-                                },
-                                "follow_id" : {
-                                    "type" : "number"
-                                },
-                                "target_id" : {
-                                    "type" : "number"
-                                },
-                                "acceptanced" : {
-                                    "type" : "boolean"
-                                },
-                                "removed" : {
-                                    "type" : "boolean"
-                                },
-                                "followed_at" : {
-                                    "type" : "string"
-                                },
-                                "acceptanced_at" : {
-                                    "type" : "string"
-                                },
-                                "removed_at" : {
-                                    "type" : "string"
-                                }
-                            }
-                        }
-                    },
-                    "400" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    },
-                    "401" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    },
-                    "404" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    },
-                    "500" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    }
+                "email": {
+                  "type": "string"
+                },
+                "sns_email": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "auth_email": {
+                  "type": "string"
+                },
+                "removed": {
+                  "type": "boolean"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "auth_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "removed_at": {
+                  "type": "string"
                 }
+              }
             }
-        },
-        "/follow/my" : {
-            "get" : {
-                "tags" : [
-                "Follow"
-                ],
-                "parameters" : [{
-                    "name" : "id",
-                    "in" : "params",
-                    "type" : "string",
-                    "required" : true
-                }],
-                "responses" : {
-                    "200" : {
-                        "schema" : {
-                            "type" : "object",
-                            "properties" : {
-                                "name" : {
-                                    "type" : "string"
-                                },
-                                "email" : {
-                                    "type" : "string"
-                                }
-                            }
-                        }
-                    },
-                    "404" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    },
-                    "500" : {
-                        "schema" : {
-                            "type" : "string"
-                        }
-                    }
-                }
+          },
+          "404": {
+            "schema": {
+              "type": "string"
             }
+          },
+          "500": {
+            "schema": {
+              "type": "string"
+            }
+          }
         }
+      },
+      "post": {
+        "tags": ["User"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string"
+                },
+                "sns_email": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "response": {
+          "201": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "auth_email": {
+                  "type": "boolean"
+                },
+                "removed": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "number"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "sns_email": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "created_at": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "409": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["User"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "response": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "sns_email": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "auth_email": {
+                  "type": "boolean"
+                },
+                "removed": {
+                  "type": "boolean"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "auth_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "removed_at": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["User"],
+        "parameters": [
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "sns_email": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "phone": {
+                  "type": "string"
+                },
+                "auth_email": {
+                  "type": "boolean"
+                },
+                "removed": {
+                  "type": "boolean"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "auth_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "removed_at": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/user/search/{phone}": {
+      "get": {
+        "tags": ["User"],
+        "parameters": [
+          {
+            "name": "phone",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "sns_email": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "auth_email": {
+                  "type": "boolean"
+                },
+                "removed": {
+                  "type": "boolean"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "auth_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "removed_at": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/auth": {
+      "post": {
+        "tags": ["Auth"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "sns_email": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "response": {
+          "201": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/auth/me": {
+      "get": {
+        "tags": ["Auth"],
+        "parameters": [
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "sns_email": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "auth_email": {
+                  "type": "boolean"
+                },
+                "removed": {
+                  "type": "boolean"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "auth_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "removed_at": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/auth/refresh": {
+      "get": {
+        "tags": ["Auth"],
+        "parameters": [
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/follow": {
+      "get": {
+        "tags": ["Follow"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "params",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Follow"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "email": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "response": {
+          "201": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "acceptanced": {
+                  "type": "boolean"
+                },
+                "removed": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "number"
+                },
+                "follow_id": {
+                  "type": "number"
+                },
+                "target_id": {
+                  "type": "number"
+                },
+                "followed_at": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "409": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["Follow"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "response": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "follow_id": {
+                  "type": "number"
+                },
+                "target_id": {
+                  "type": "number"
+                },
+                "acceptanced": {
+                  "type": "boolean"
+                },
+                "removed": {
+                  "type": "boolean"
+                },
+                "followed_at": {
+                  "type": "string"
+                },
+                "acceptanced_at": {
+                  "type": "string"
+                },
+                "removed_at": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Follow"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "number",
+            "required": true
+          },
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "follow_id": {
+                  "type": "number"
+                },
+                "target_id": {
+                  "type": "number"
+                },
+                "acceptanced": {
+                  "type": "boolean"
+                },
+                "removed": {
+                  "type": "boolean"
+                },
+                "followed_at": {
+                  "type": "string"
+                },
+                "acceptanced_at": {
+                  "type": "string"
+                },
+                "removed_at": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/follow/my": {
+      "get": {
+        "tags": ["Follow"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "params",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
     }
+  }
 }
