@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon --exec babel-node -- ./src/app.js",
-    "lint": "eslint --fix src/app.js src/models src/routes src/controllers src/util"
+    "lint": "eslint --fix src/app.js src/models src/routes src/controllers src/util",
+    "trans": "./transpile.sh"
   },
   "repository": {
     "type": "git",
