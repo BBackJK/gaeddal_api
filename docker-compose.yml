@@ -2,10 +2,13 @@ version: "3.7"
 
 services:
   api:
+    image: gaeddal-api
     build: .
     restart: always
-    env_file:
-      - .env
+    environment:
+      - MYSQL_ROOT_PASSWORD=test
+      - MYSQL_DATABASE=gaeddal
+      - DB_HOST=database
     links:
       - database
 
@@ -14,7 +17,9 @@ services:
     restart: always
     ports:
       - "3306:3306"
-    env_file:
-      - .env
+    environment:
+      - MYSQL_ROOT_PASSWORD=test
+      - MYSQL_DATABASE=gaeddal
+      - DB_HOST=database
     volumes:
       - ~/database/gaeddal:/var/lib/mysql

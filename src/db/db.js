@@ -1,7 +1,7 @@
 import Sequelize from 'sequelize';
 import dotenv from 'dotenv';
 
-dotenv.config({ path: 'config.env' });
+dotenv.config({ path: 'config-dev.env' });
 
 const db = {};
 
@@ -12,11 +12,6 @@ const sequelize = new Sequelize(
   {
     host: process.env.DB_HOST,
     dialect: 'mysql',
-    timezone: 'Asia/Seoul',
-    define: {
-      engine: 'InnoDB',
-      charset: 'utf8',
-    },
   },
 );
 

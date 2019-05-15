@@ -10,7 +10,7 @@ import routers from './routes/index';
 import db from './db/db';
 import apiDocs from '../swagger.json';
 
-dotenv.config({ path: 'config.env' });
+dotenv.config({ path: 'config-dev.env' });
 
 const app = express();
 
@@ -25,7 +25,8 @@ app.use(
 app.use('/docs', swagger.serve, swagger.setup(apiDocs));
 app.use('/', routers);
 
-db.sequelize.sync()
+db.sequelize
+  .sync()
   .then(() => {
     console.log('sequelize sync success');
   })
