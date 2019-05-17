@@ -1,3 +1,4 @@
 import Util from './jwt';
+import Random from './authNumber';
 
-export default Util;
+export { Util, Random };
