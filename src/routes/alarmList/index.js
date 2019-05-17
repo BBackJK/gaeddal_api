@@ -5,7 +5,7 @@ import postAlarmList from './postAlarmList';
 import putAlarmList from './putAlarmList';
 import deleteAlarmList from './deleteAlarmList';
 
-import Util from '../../util';
+import { Util } from '../../util';
 
 const router = express.Router();
 

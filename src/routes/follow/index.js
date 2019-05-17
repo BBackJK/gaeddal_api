@@ -6,7 +6,7 @@ import getAllFollow from './getAllFollow';
 import putFollow from './putFollow';
 import deleteFollow from './deleteFollow';
 
-import Util from '../../util';
+import { Util } from '../../util';
 
 const router = express.Router();
 

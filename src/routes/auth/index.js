@@ -4,7 +4,7 @@ import login from './login';
 import me from './me';
 import refresh from './refresh';
 
-import Util from '../../util';
+import { Util } from '../../util';
 
 const router = express.Router();
 
