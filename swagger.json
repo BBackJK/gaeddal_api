@@ -725,7 +725,7 @@
           {
             "name": "id",
             "in": "path",
-            "type": "number",
+            "type": "string",
             "required": true
           },
           {
@@ -834,6 +834,281 @@
                       "type": "string"
                     }
                   }
+                }
+              }
+            }
+          },
+          "400": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/alarmList": {
+      "get": {
+        "tags": ["AlarmList"],
+        "parameters": [
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "response": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "user_id": {
+                  "type": "number"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "removed": {
+                  "type": "boolean"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "removed_at": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["AlarmList"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "removed": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "number"
+                },
+                "user_id": {
+                  "type": "number"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "created_at": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["AlarmList"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "title": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "user_id": {
+                  "type": "number"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "removed": {
+                  "type": "boolean"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "removed_at": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["AlarmList"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "user_id": {
+                  "type": "number"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "removed": {
+                  "type": "boolean"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "removed_at": {
+                  "type": "string"
                 }
               }
             }
