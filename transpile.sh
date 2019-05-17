@@ -1,3 +1,4 @@
+#!/bin/sh
 mkdir -p lib/src
 babel ./src/app.js -o lib/src/app.js
 babel ./src -d lib/src
