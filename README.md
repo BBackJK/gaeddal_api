@@ -8,12 +8,14 @@ It is not finished yet. so I have not used a docker yet
 
 This api service architecture is Node.js, Express.js, MySQL and es6.
 
-## Prepared 
+## Prepared
 
 ### Install
 
-* Node.JS : [https://nodejs.org/en/download/](https://nodejs.org/en/download/)
-* MySQL : [https://dev.mysql.com/downloads/](https://dev.mysql.com/downloads/)
+- Node.JS : [https://nodejs.org/en/download/](https://nodejs.org/en/download/)
+- MySQL : [https://dev.mysql.com/downloads/](https://dev.mysql.com/downloads/)
+- Docker-for-mac : [https://docs.docker.com/docker-for-mac/install/](https://docs.docker.com/docker-for-mac/install/)
+- Docker-for-Window : [https://docs.docker.com/docker-for-windows/install/](https://docs.docker.com/docker-for-mac/install/)
 
 # Create development environment
 
@@ -23,46 +25,89 @@ cd gaeddal_api/
 npm install
 ```
 
-## Before start
-
-As I said before, I have not used a docker yet. (similarly, docker-compose)
-
-so you must create a database.
-
-and change the code.
-
-```
-in src/db/db.js...
-
-const sequelize = new Sequelize(
-        process.env.DB_NAME,              // change the database name 
-        process.env.DB_USERNAME, 
-        process.env.DB_PASSWORD, 
-        {
-            host : process.env.DB_HOST,
-            dialect : 'mysql',
-            operatorAliases : false,
-        })
-```
-
-so I used **dotenv** in this project. (SERVER_PORT / DB_NAME / DB_USERNAME / DB_PASSWORD / DB_HOST / JWT_SECRET)
-
-> ref) Using dotenv : [https://www.npmjs.com/package/dotenv](https://www.npmjs.com/package/dotenv)
-
-Anyways, if you create a database, you do not have to worry about tables.
-
-because I used sequelize. database table is automatically craeted.
-
-if you set this all up, npm start
-
 ## Start
 
-start this project
+### Start without local mysql
+
+If your local dont't have mysql, start mysql container.
+
+```
+// mysql container in local
+docker run -d -p 3306:3306 --name database \
+-e MYSQL_ROOT_PASSWORD=test \
+-e MYSQL_DATABASE=gaeddal \
+-e MYSQL_HOST=localhost \
+-v ~/database/gaeddal:/var/lib/mysql mysql:5.7
+
+// check container
+docker ps -a
+
+// start project
+npm start
+```
+
+### Start with local mysql
+
+Setting your mysql **CREATE DATABASE gaeddal**
+
+start this project on local.
 
 ```
 npm start
 ```
 
+### Start with docker
+
+in gaeddal_api folder..
+
+```
+// run mysql container
+docker run -d -p 3306:3306 --name database \
+-e MYSQL_ROOT_PASSWORD=test \
+-e MYSQL_DATABASE=gaeddal \
+-e MYSQL_HOST=database \
+-v ~/database/gaeddal:/var/lib/mysql mysql:5.7
+
+// build project with docker
+docker build -t gaeddal-api .
+
+// check images
+docker images
+
+// run api container
+docker run -d -p 8000:8000 --name api \
+--link database \
+-e MYSQL_ROOT_PASSWORD=test \
+-e MYSQL_DATABASE=gaeddal \
+-e MYSQL_HOST=database \
+gaeddal-api
+
+// check container
+docker ps -a
+```
+
+### Start with docker-compose
+
+```
+// build project with docker
+docker build -t gaeddal-api .
+
+// start docker compose
+docker-compose up -d
+
+// check container
+docker ps -a
+
+// stop container
+docker-compose down
+```
+
+## Other Scripts
+
+```
+npm run lint // check eslint
+npm run trans // transpile babel file
+
+```
+
 it you want to know the api of this project, you connect http://localhost:8080/docs
-
-
