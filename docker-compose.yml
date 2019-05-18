@@ -5,10 +5,12 @@ services:
     image: gaeddal-api
     build: .
     restart: always
+    ports:
+      - "8000:8000"
     environment:
       - MYSQL_ROOT_PASSWORD=test
       - MYSQL_DATABASE=gaeddal
-      - DB_HOST=database
+      - MYSQL_HOST=database
     links:
       - database
 
@@ -20,6 +22,6 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=test
       - MYSQL_DATABASE=gaeddal
-      - DB_HOST=database
+      - MYSQL_HOST=database
     volumes:
       - ~/database/gaeddal:/var/lib/mysql
