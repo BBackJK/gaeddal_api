@@ -3,6 +3,8 @@ import get from './getFollow';
 import getAll from './getAllFollow';
 import put from './putFollow';
 import remove from './deleteFollow';
+import getByFollow from './getFollowByFollow';
+import getByTarget from './getFollowByTarget';
 
 export default {
   post,
@@ -10,4 +12,6 @@ export default {
   getAll,
   put,
   remove,
+  getByFollow,
+  getByTarget,
 };
