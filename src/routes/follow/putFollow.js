@@ -4,6 +4,7 @@ export default async (req, res) => {
   try {
     if (
       !req.decoded
+      || !req.body.id
       || !req.body.user_id
       || !req.body.email
       || !req.body.name

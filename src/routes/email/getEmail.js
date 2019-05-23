@@ -2,7 +2,7 @@ import nodeMailer from 'nodemailer';
 import dotenv from 'dotenv';
 
 import { Email } from '../../controllers';
-import { Random } from '../../util';
+import { authNumber } from '../../util';
 
 dotenv.config({ path: 'config-dev.env' });
 
@@ -16,7 +16,7 @@ export default async (req, res) => {
 
     const random = Math.floor(Math.random() * 90000) + 10000;
 
-    Random.setNumber(random);
+    authNumber.setNumber(random);
 
     const transporter = nodeMailer.createTransport({
       service: 'gmail',

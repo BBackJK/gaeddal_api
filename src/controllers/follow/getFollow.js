@@ -12,6 +12,7 @@ export default async (data) => {
       {
         model: Users,
         attributes: ['id', 'email', 'name'],
+        where: { removed: 0 },
       },
     ],
     where: { target_id: data.id, removed: 0, acceptanced: 0 },

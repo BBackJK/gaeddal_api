@@ -1,9 +1,9 @@
 import { Users } from '../../models';
 
-export default async (data) => {
+export default async (bodyData) => {
   const emailWhereData = {};
 
-  emailWhereData.email = data.email;
+  emailWhereData.email = bodyData.email;
   emailWhereData.removed = 0;
 
   const emailOverlap = await Users.findOne({ where: emailWhereData });
@@ -12,10 +12,10 @@ export default async (data) => {
 
   const createData = {};
 
-  createData.email = data.email;
-  createData.sns_email = data.sns_email;
-  createData.name = data.name;
-  createData.phone = data.phone;
+  createData.email = bodyData.email;
+  createData.sns_email = bodyData.sns_email;
+  createData.name = bodyData.name;
+  createData.phone = bodyData.phone;
   createData.created_at = new Date();
 
   const result = await Users.create(createData);

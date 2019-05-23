@@ -1,11 +1,11 @@
 import { Email } from '../../controllers';
-import { Random } from '../../util';
+import { authNumber } from '../../util';
 
 export default async (req, res) => {
   try {
     if (!req.decoded || !req.body.auth) return res.status(400).send('Bad Data');
 
-    if (req.body.auth !== Random.getNumber()) {
+    if (req.body.auth !== authNumber.getNumber()) {
       return res.status(409).send('Not Auth Number');
     }
 
