@@ -2,8 +2,6 @@
 
 This is **Rest API** for service that named "Gaeddal" of Team DDD.
 
-It is not finished yet. so I have not used a docker yet
-
 # Getting Started
 
 This api service architecture is Node.js, Express.js, MySQL and es6.
@@ -107,7 +105,6 @@ docker-compose down
 ```
 npm run lint // check eslint
 npm run trans // transpile babel file
-
 ```
 
-it you want to know the api of this project, you connect http://localhost:8080/docs
+it you want to know the api of this project, you connect http://localhost:8000/docs
