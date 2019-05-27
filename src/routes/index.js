@@ -7,6 +7,7 @@ import messages from './messages';
 import send from './send';
 import alarmList from './alarmList';
 import email from './email';
+import images from './images';
 
 const router = express.Router();
 
@@ -17,5 +18,6 @@ router.use('/messages', messages);
 router.use('/send', send);
 router.use('/alarmList', alarmList);
 router.use('/email', email);
+router.use('/images', images);
 
 export default router;
