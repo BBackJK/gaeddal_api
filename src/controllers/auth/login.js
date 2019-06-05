@@ -2,11 +2,11 @@ import jwt from 'jsonwebtoken';
 
 import { Users } from '../../models';
 
-export default async (data) => {
+export default async (bodyData) => {
   const whereData = {};
 
   whereData.removed = 0;
-  whereData.sns_email = data;
+  whereData.sns_email = bodyData.sns_email;
 
   const result = await Users.findOne({ where: whereData });
 

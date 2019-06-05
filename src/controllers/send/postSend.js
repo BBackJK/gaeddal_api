@@ -1,31 +1,27 @@
 import { Users, Send } from '../../models';
 
-export default async (data) => {
+export default async (decodeData, bodyData) => {
   const userFindData = {};
 
-  userFindData.name = data.name;
-  userFindData.email = data.email;
+  userFindData.id = bodyData.id;
+  userFindData.name = bodyData.name;
+  userFindData.email = bodyData.email;
   userFindData.removed = 0;
 
-  const findData = await Users.findOne({
-    attributes: ['id'],
-    where: userFindData,
-  });
+  const findData = await Users.findOne({ where: userFindData });
 
-  if (findData) {
-    const sendBody = {};
+  if (!findData) return 'Empty';
 
-    sendBody.send_id = data.id;
-    sendBody.recieve_id = findData.dataValues.id;
-    sendBody.contents = data.contents;
-    sendBody.lat = data.lat;
-    sendBody.lng = data.lng;
-    sendBody.sended_at = new Date();
+  const postData = {};
 
-    const result = await Send.create(sendBody);
+  postData.send_id = decodeData.id;
+  postData.recieve_id = bodyData.id;
+  postData.contents = bodyData.contents;
+  postData.lat = bodyData.lat;
+  postData.lng = bodyData.lng;
+  postData.sended_at = new Date();
 
-    return result;
-  }
+  const result = await Send.create(postData);
 
-  return 'not found';
+  return result;
 };

@@ -1,18 +1,30 @@
 import { Send, Users } from '../../models';
 
-export default async (data) => {
+export default async (decodeData) => {
   Send.belongsTo(Users, {
     foreignKey: 'send_id',
     targetKey: 'id',
   });
 
   const result = await Send.findAll({
-    attributes: ['id', 'send_id', 'recieve_id', 'contents', 'lat', 'lng', 'status', 'sended_at'],
-    include: [{
-      model: Users,
-      attributes: ['id', 'email', 'name'],
-    }],
-    where: { recieve_id: data.id, removed: 0 },
+    attributes: [
+      'id',
+      'send_id',
+      'recieve_id',
+      'contents',
+      'lat',
+      'lng',
+      'status',
+      'sended_at',
+    ],
+    include: [
+      {
+        model: Users,
+        attributes: ['id', 'email', 'name'],
+        where: { removed: 0 },
+      },
+    ],
+    where: { recieve_id: decodeData.id, removed: 0 },
     order: [['sended_at', 'DESC']],
   });
 

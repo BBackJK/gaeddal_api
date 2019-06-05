@@ -1,4 +1,5 @@
-import { Users } from '../../models';
+import { Users, Images } from '../../models';
+import db from '../../db/db';
 
 export default async (bodyData) => {
   const emailWhereData = {};
@@ -18,7 +19,19 @@ export default async (bodyData) => {
   createData.phone = bodyData.phone;
   createData.created_at = new Date();
 
-  const result = await Users.create(createData);
+  const result = await db.sequelize.transaction(async (t) => {
+    const userCreate = await Users.create(createData, { transaction: t });
+
+    await Images.create(
+      {
+        user_id: userCreate.dataValues.id,
+        created_at: new Date(),
+      },
+      { transaction: t },
+    );
+
+    return userCreate;
+  });
 
   return result;
 };

@@ -1,10 +1,12 @@
-import { Send } from '../../controllers';
+import { Messages } from '../../controllers';
 
 export default async (req, res) => {
   try {
-    if (!req.decoded) return res.status(400).send('Bad Data');
+    if (!req.decoded || !req.body.id || !req.body) {
+      return res.status(400).send('Bad Data');
+    }
 
-    const result = await Send.getBySend(req.decoded);
+    const result = await Messages.remove(req.decoded, req.body);
 
     return !result
       ? res.status(404).send('Not Found')

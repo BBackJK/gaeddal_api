@@ -1,10 +1,10 @@
 import { Images } from '../../models';
 
-export default async (decodedData, bodyData) => {
+export default async (decodeData, bodyData) => {
   const whereData = {};
   const updateData = {};
 
-  whereData.user_id = decodedData.id;
+  whereData.user_id = decodeData.id;
   whereData.id = bodyData.id;
   whereData.removed = 0;
 

@@ -1,6 +1,6 @@
 import { Users, Follow } from '../../models';
 
-export default async (data) => {
+export default async (decodeData) => {
   Follow.belongsTo(Users, {
     foreignKey: 'follow_id',
     targetKey: 'id',
@@ -15,7 +15,7 @@ export default async (data) => {
         where: { removed: 0 },
       },
     ],
-    where: { target_id: data.id, removed: 0, acceptanced: 0 },
+    where: { target_id: decodeData.id, removed: 0, acceptanced: 0 },
     order: [['followed_at', 'DESC']],
   });
 

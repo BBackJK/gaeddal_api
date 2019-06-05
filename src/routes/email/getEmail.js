@@ -1,10 +1,7 @@
 import nodeMailer from 'nodemailer';
-import dotenv from 'dotenv';
 
 import { Email } from '../../controllers';
 import { authNumber } from '../../util';
-
-dotenv.config({ path: 'config-dev.env' });
 
 export default async (req, res) => {
   try {

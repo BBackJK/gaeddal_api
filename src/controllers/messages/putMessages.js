@@ -1,21 +1,21 @@
 import { Messages } from '../../models';
 
-export default async (data) => {
+export default async (decodeData, bodyData) => {
   const whereData = {};
   const updateData = {};
 
   whereData.removed = 0;
-  whereData.id = data.id;
-  whereData.user_id = data.user_id;
+  whereData.id = bodyData.id;
+  whereData.user_id = decodeData.id;
 
-  updateData.category = data.category;
-  updateData.contents = data.contents;
+  updateData.category = bodyData.category;
+  updateData.contents = bodyData.contents;
   updateData.updated_at = new Date();
 
   await Messages.update(updateData, { where: whereData });
 
-  whereData.category = data.category;
-  whereData.contents = data.contents;
+  whereData.category = bodyData.category;
+  whereData.contents = bodyData.contents;
 
   const result = await Messages.findOne({ where: whereData });
 

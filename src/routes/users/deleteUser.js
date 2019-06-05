@@ -6,7 +6,9 @@ export default async (req, res) => {
 
     const result = await Users.remove(req.decoded);
 
-    return !result ? res.status(404).send('Not Found') : res.status(200).send(result);
+    return !result
+      ? res.status(404).send('Not Found')
+      : res.status(200).send(result);
   } catch (err) {
     return res.status(500).send('Internal Server Error');
   }

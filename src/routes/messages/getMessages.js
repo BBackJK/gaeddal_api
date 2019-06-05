@@ -2,11 +2,13 @@ import { Messages } from '../../controllers';
 
 export default async (req, res) => {
   try {
-    const result = await Messages.get(req.params);
+    if (!req.decoded) return res.status(400).send('Bad Data');
 
-    if (!result) return res.status(404).send('Not Found');
+    const result = await Messages.get(req.decoded);
 
-    return res.status(200).send(result);
+    return !result
+      ? res.status(404).send('Not Found')
+      : res.status(200).send(result);
   } catch (err) {
     return res.status(500).send('Internal Server Error');
   }
