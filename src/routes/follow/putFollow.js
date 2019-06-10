@@ -14,7 +14,7 @@ export default async (req, res) => {
 
     const result = await Follow.put(req.decoded, req.body);
 
-    return result === 'not found'
+    return result === 'Empty'
       ? res.status(404).send('Not Found')
       : res.status(200).send(result);
   } catch (err) {

@@ -5,3 +5,4 @@ Dockerfile
 .dockerignore
 .git
 lib
+config-dev.env

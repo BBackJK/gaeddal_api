@@ -2,7 +2,7 @@
   "name": "gaeddal_api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/app.js",
   "scripts": {
     "start": "nodemon --exec babel-node -- ./src/app.js",
     "lint": "eslint --fix src/app.js src/models src/routes src/controllers src/util src/db",

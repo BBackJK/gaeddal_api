@@ -1,10 +1,10 @@
 import { Messages } from '../../models';
 
-export default async (decodeData, bodyData) => {
+export default async (decodeData, paramData) => {
   const whereData = {};
   const updateData = {};
 
-  whereData.id = bodyData.id;
+  whereData.id = paramData.id;
   whereData.user_id = decodeData.id;
   whereData.removed = 0;
 
@@ -15,7 +15,7 @@ export default async (decodeData, bodyData) => {
 
   whereData.removed = 1;
 
-  const result = Messages.findOne({ where: whereData });
+  const result = await Messages.findOne({ where: whereData });
 
   return result;
 };

@@ -1,14 +1,14 @@
 import { Users, Send } from '../../models';
 
 export default async (decodeData, bodyData) => {
-  const userFindData = {};
+  const whereData = {};
 
-  userFindData.id = bodyData.id;
-  userFindData.name = bodyData.name;
-  userFindData.email = bodyData.email;
-  userFindData.removed = 0;
+  whereData.id = bodyData.id;
+  whereData.name = bodyData.name;
+  whereData.email = bodyData.email;
+  whereData.removed = 0;
 
-  const findData = await Users.findOne({ where: userFindData });
+  const findData = await Users.findOne({ where: whereData });
 
   if (!findData) return 'Empty';
 

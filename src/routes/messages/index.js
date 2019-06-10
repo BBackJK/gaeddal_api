@@ -12,6 +12,6 @@ const router = express.Router();
 router.get('/', Util.isLoggedIn, getMessages);
 router.post('/', Util.isLoggedIn, postMessages);
 router.put('/', Util.isLoggedIn, putMessages);
-router.delete('/', Util.isLoggedIn, deleteMessages);
+router.delete('/:id', Util.isLoggedIn, deleteMessages);
 
 export default router;

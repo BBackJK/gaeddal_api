@@ -8,7 +8,7 @@ export default async (req, res) => {
 
     const result = await AlarmList.put(req.decoded, req.body);
 
-    return !result
+    return result === 'Empty'
       ? res.status(404).send('Not Found')
       : res.status(200).send(result);
   } catch (err) {

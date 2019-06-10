@@ -2,11 +2,11 @@ import { Messages } from '../../controllers';
 
 export default async (req, res) => {
   try {
-    if (!req.decoded || !req.body.id || !req.body) {
+    if (!req.decoded || !req.params.id) {
       return res.status(400).send('Bad Data');
     }
 
-    const result = await Messages.remove(req.decoded, req.body);
+    const result = await Messages.remove(req.decoded, req.params);
 
     return !result
       ? res.status(404).send('Not Found')

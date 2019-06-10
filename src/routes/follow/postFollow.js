@@ -8,7 +8,7 @@ export default async (req, res) => {
 
     const result = await Follow.post(req.decoded, req.body);
 
-    if (!result || result === 'not found') {
+    if (!result || result === 'Empty') {
       return res.status(404).send('Not Found');
     }
     return result === 'already exist'

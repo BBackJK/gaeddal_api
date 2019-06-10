@@ -8,7 +8,9 @@ export default async (req, res) => {
 
     const result = await Messages.post(req.decoded, req.body);
 
-    return res.status(201).send(result);
+    return result === 'Empty'
+      ? res.status(404).send('Not Found')
+      : res.status(201).send(result);
   } catch (err) {
     return res.status(500).send('Internal Server Error');
   }

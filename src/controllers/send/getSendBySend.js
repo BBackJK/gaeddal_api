@@ -14,7 +14,7 @@ export default async (decodeData) => {
       'contents',
       'lat',
       'lng',
-      'status',
+      'readed',
       'sended_at',
     ],
     include: [

@@ -8,6 +8,10 @@ export default async (decodeData, paramData) => {
   whereData.id = paramData.id;
   whereData.user_id = decodeData.id;
 
+  const findResult = await AlarmList.findOne({ where: whereData });
+
+  if (!findResult) return 'Empty';
+
   updateData.removed_at = new Date();
   updateData.removed = 1;
 

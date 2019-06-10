@@ -1,11 +1,11 @@
-import getById from './getUserById';
+import get from './getUser';
 import getByPhone from './getUserByPhone';
 import post from './postUser';
 import put from './putUser';
 import remove from './deleteUser';
 
 export default {
-  getById,
+  get,
   getByPhone,
   post,
   put,

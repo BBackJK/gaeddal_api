@@ -10,7 +10,7 @@ export default async (decodeData, bodyData) => {
 
   const findData = await Users.findOne({ where: userFindData });
 
-  if (!findData) return 'not found';
+  if (!findData) return 'Empty';
 
   const followcheckData = {};
   const followpostData = {};

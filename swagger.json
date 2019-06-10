@@ -765,7 +765,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/flollow/{id}": {
       "delete": {
         "tags": ["Follow"],
         "parameters": [
@@ -1115,7 +1117,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/alarmList/{id}": {
       "delete": {
         "tags": ["AlarmList"],
         "parameters": [
@@ -1340,6 +1344,1062 @@
                 },
                 "removed_at": {
                   "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/alarm": {
+      "get": {
+        "tags": ["Alarm"],
+        "parameters": [
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "user_id": {
+                  "type": "number"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "date": {
+                  "type": "string"
+                },
+                "time": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "removed": {
+                  "type": "string"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "removed_at": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Alarm"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "date": {
+                  "type": "string"
+                },
+                "time": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "boolean"
+                },
+                "removed": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "number"
+                },
+                "user_id": {
+                  "type": "number"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "date": {
+                  "type": "string"
+                },
+                "time": {
+                  "type": "string"
+                },
+                "created_at": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["Alarm"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "description": "table_pk_id"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "date": {
+                  "type": "string"
+                },
+                "time": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "number"
+                }
+              }
+            }
+          },
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "user_id": {
+                  "type": "number"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "date": {
+                  "type": "string"
+                },
+                "time": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "boolean"
+                },
+                "removed": {
+                  "type": "boolean"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "removed_at": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/alarm/{id}": {
+      "delete": {
+        "tags": ["Alarm"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "user_id": {
+                  "type": "number"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "date": {
+                  "type": "string"
+                },
+                "time": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "boolean"
+                },
+                "removed": {
+                  "type": "boolean"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "removed_at": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/messages": {
+      "get": {
+        "tags": ["Messages"],
+        "parameters": [
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "user_id": {
+                  "type": "number"
+                },
+                "category": {
+                  "type": "string"
+                },
+                "contents": {
+                  "type": "string"
+                },
+                "removed": {
+                  "type": "boolean"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "removed_at": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Messages"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "category": {
+                  "type": "string"
+                },
+                "contents": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "removed": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "number"
+                },
+                "user_id": {
+                  "type": "number"
+                },
+                "category": {
+                  "type": "string"
+                },
+                "contents": {
+                  "type": "string"
+                },
+                "created_at": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["Messages"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "description": "table_pk_id"
+                },
+                "category": {
+                  "type": "string"
+                },
+                "contents": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "required": true,
+            "typr": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "user_id": {
+                  "type": "number"
+                },
+                "category": {
+                  "type": "string"
+                },
+                "contents": {
+                  "type": "string"
+                },
+                "removed": {
+                  "type": "boolean"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "removed_at": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/messages/{id}": {
+      "delete": {
+        "tags": ["Messages"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "description": "table_pk_id"
+          },
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "user_id": {
+                  "type": "number"
+                },
+                "category": {
+                  "type": "string"
+                },
+                "contents": {
+                  "type": "string"
+                },
+                "removed": {
+                  "type": "boolean"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "removed_at": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/send": {
+      "post": {
+        "tags": ["Send"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "description": "user_id"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "contents": {
+                  "type": "string"
+                },
+                "lat": {
+                  "type": "number"
+                },
+                "lng": {
+                  "type": "number"
+                }
+              }
+            }
+          },
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "readed": {
+                  "type": "boolean"
+                },
+                "removed": {
+                  "type": "boolean"
+                },
+                "id": {
+                  "type": "number"
+                },
+                "send_id": {
+                  "type": "number"
+                },
+                "recieve_id": {
+                  "type": "number"
+                },
+                "contents": {
+                  "type": "string"
+                },
+                "lat": {
+                  "type": "number"
+                },
+                "lng": {
+                  "type": "number"
+                },
+                "sended_at": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["Send"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "description": "table_pk_id"
+                },
+                "send_id": {
+                  "type": "number",
+                  "description": "send_id"
+                }
+              }
+            }
+          },
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "send_id": {
+                  "type": "number"
+                },
+                "recieve_id": {
+                  "type": "number"
+                },
+                "contents": {
+                  "type": "string"
+                },
+                "lat": {
+                  "type": "number"
+                },
+                "lng": {
+                  "type": "number"
+                },
+                "readed": {
+                  "type": "boolean"
+                },
+                "removed": {
+                  "type": "boolean"
+                },
+                "sended_at": {
+                  "type": "string"
+                },
+                "readed_at": {
+                  "type": "string"
+                },
+                "removed_at": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/send/{id}": {
+      "delete": {
+        "tags": ["Send"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "send_id": {
+                  "type": "number"
+                },
+                "recieve_id": {
+                  "type": "number"
+                },
+                "contents": {
+                  "type": "string"
+                },
+                "lat": {
+                  "type": "number"
+                },
+                "lng": {
+                  "type": "number"
+                },
+                "readed": {
+                  "type": "boolean"
+                },
+                "removed": {
+                  "type": "boolean"
+                },
+                "sended_at": {
+                  "type": "string"
+                },
+                "readed_at": {
+                  "type": "string"
+                },
+                "removed_at": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/send/send": {
+      "get": {
+        "tags": ["Send"],
+        "parameters": [
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "send_id": {
+                  "type": "number"
+                },
+                "recieve_id": {
+                  "type": "number"
+                },
+                "contents": {
+                  "type": "string"
+                },
+                "lat": {
+                  "type": "number"
+                },
+                "lng": {
+                  "type": "number"
+                },
+                "readed": {
+                  "type": "boolean"
+                },
+                "sended_at": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "/send/recieve": {
+      "get": {
+        "tags": ["Send"],
+        "parameters": [
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "send_id": {
+                  "type": "number"
+                },
+                "recieve_id": {
+                  "type": "number"
+                },
+                "contents": {
+                  "type": "string"
+                },
+                "lat": {
+                  "type": "number"
+                },
+                "lng": {
+                  "type": "number"
+                },
+                "readed": {
+                  "type": "boolean"
+                },
+                "sended_at": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
