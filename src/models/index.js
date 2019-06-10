@@ -6,6 +6,7 @@ import messages from './messages';
 import send from './send';
 import alarmList from './alarmList';
 import images from './images';
+import alarm from './alarm';
 
 const Users = users(db.sequelize, db.Sequelize);
 const Follow = follow(db.sequelize, db.Sequelize);
@@ -13,6 +14,7 @@ const Messages = messages(db.sequelize, db.Sequelize);
 const Send = send(db.sequelize, db.Sequelize);
 const AlarmList = alarmList(db.sequelize, db.Sequelize);
 const Images = images(db.sequelize, db.Sequelize);
+const Alarm = alarm(db.sequelize, db.Sequelize);
 
 Users.hasMany(Follow, {
   foreignKey: 'follow_id',
@@ -49,6 +51,11 @@ Users.hasOne(Images, {
   sourceKey: 'id',
 });
 
+Users.hasMany(Alarm, {
+  foreignKey: 'user_id',
+  sourceKey: 'id',
+});
+
 export {
-  Users, Follow, Messages, Send, AlarmList, Images,
+  Users, Follow, Messages, Send, AlarmList, Images, Alarm,
 };
