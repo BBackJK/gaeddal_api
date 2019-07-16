@@ -2,17 +2,9 @@ import { Messages } from '../../controllers';
 
 export default async (req, res) => {
   try {
-    console.log(req.body);
-    if (
-      !req.decoded
-      || !req.body.id
-      || !req.body.category
-      || !req.body.contents
-    ) {
-      return res.status(400).send('Bad Data');
-    }
+    if (!req.decoded || !req.params) return res.status(400).send('Bad Data');
 
-    const result = await Messages.put(req.decoded, req.body);
+    const result = await Messages.getById(req.decoded, req.params);
 
     return !result
       ? res.status(404).send('Not Found')

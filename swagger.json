@@ -1992,6 +1992,77 @@
       }
     },
     "/messages/{id}": {
+      "get": {
+        "tags": ["Messages"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "description": "table_pk_id"
+          },
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "user_id": {
+                  "type": "number"
+                },
+                "category": {
+                  "type": "string"
+                },
+                "contents": {
+                  "type": "string"
+                },
+                "removed": {
+                  "type": "boolean"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                },
+                "removed_at": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
       "delete": {
         "tags": ["Messages"],
         "parameters": [
