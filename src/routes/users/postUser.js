@@ -1,3 +1,5 @@
+import { isEmail, isMobilePhone, isLength } from 'validator';
+
 import { Users } from '../../controllers';
 
 export default async (req, res) => {
@@ -7,6 +9,9 @@ export default async (req, res) => {
       || !req.body.sns_email
       || !req.body.name
       || !req.body.phone
+      || !isEmail(req.body.email)
+      || !isMobilePhone(req.body.phone)
+      || !isLength(req.body.phone, { min: 11, max: 11 })
     ) {
       return res.status(400).send('Bad Data');
     }

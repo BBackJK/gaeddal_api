@@ -34,7 +34,8 @@
     "nodemailer": "^6.1.1",
     "sequelize": "^5.8.0",
     "swagger-ui-express": "^4.0.2",
-    "uuid": "^3.3.2"
+    "uuid": "^3.3.2",
+    "validator": "^11.1.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
@@ -53,6 +54,7 @@
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-flowtype": "^3.8.1",
-    "eslint-plugin-import": "^2.17.2"
+    "eslint-plugin-import": "^2.17.2",
+    "nodemon": "^1.19.1"
   }
 }
