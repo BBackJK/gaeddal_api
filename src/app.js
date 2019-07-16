@@ -1,16 +1,15 @@
 import express from 'express';
 import swagger from 'swagger-ui-express';
-import dotenv from 'dotenv';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import compression from 'compression';
 import helmet from 'helmet';
 
 import routers from './routes/index';
-import db from './db/db';
+import db from './database/database';
 import apiDocs from '../swagger.json';
 
-dotenv.config({ path: 'config-dev.env' });
+const { server, database } = require('../config').default;
 
 const app = express();
 
@@ -26,7 +25,7 @@ app.use('/docs', swagger.serve, swagger.setup(apiDocs));
 app.use('/', routers);
 
 db.sequelize
-  .sync()
+  .sync({ force: database.sync })
   .then(() => {
     console.log('sequelize sync success');
   })
@@ -34,6 +33,6 @@ db.sequelize
     console.error(err);
   });
 
-app.listen(process.env.SERVER_PORT, () => {
-  console.log(`express server start on port ${process.env.SERVER_PORT}`);
+app.listen(server.port, () => {
+  console.log(`express server start on port ${server.port}`);
 });

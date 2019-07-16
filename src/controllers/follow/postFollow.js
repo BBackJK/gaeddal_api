@@ -21,7 +21,12 @@ export default async (decodeData, bodyData) => {
 
   const findResult = await Follow.findOne({ where: followcheckData });
 
-  if (findResult) return 'already exist';
+  followcheckData.target_id = bodyData.id;
+  followcheckData.follow_id = decodeData.id;
+
+  const duplicateResult = await Follow.findOne({ where: followcheckData });
+
+  if (findResult || duplicateResult) return 'already exist';
 
   followpostData.follow_id = decodeData.id;
   followpostData.target_id = bodyData.id;

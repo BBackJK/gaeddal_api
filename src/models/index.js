@@ -1,4 +1,4 @@
-import db from '../db/db';
+import db from '../database/database';
 
 import users from './users';
 import follow from './follow';
@@ -57,5 +57,5 @@ Users.hasMany(Alarm, {
 });
 
 export {
-  Users, Follow, Messages, Send, AlarmList, Images, Alarm,
+ Users, Follow, Messages, Send, AlarmList, Images, Alarm 
 };

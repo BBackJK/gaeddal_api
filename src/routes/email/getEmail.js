@@ -3,6 +3,8 @@ import nodeMailer from 'nodemailer';
 import { Email } from '../../controllers';
 import { authNumber } from '../../util';
 
+const { email } = require('../../../config').default;
+
 export default async (req, res) => {
   try {
     if (!req.decoded) return res.status(400).send('Bad Data');
@@ -18,13 +20,13 @@ export default async (req, res) => {
     const transporter = nodeMailer.createTransport({
       service: 'gmail',
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASSWORD,
+        user: email.user,
+        pass: email.password,
       },
     });
 
     const mailOptions = {
-      from: process.env.EMAIL_USER,
+      from: email.user,
       to: req.decoded.email,
       subject: '안녕하세요! 개딸입니다. 이메일 인증을 해주세요.',
       // eslint-disable-next-line prefer-template

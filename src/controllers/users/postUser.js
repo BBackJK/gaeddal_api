@@ -1,5 +1,5 @@
 import { Users, Images } from '../../models';
-import db from '../../db/db';
+import db from '../../database/database';
 
 export default async (bodyData) => {
   const emailWhereData = {};

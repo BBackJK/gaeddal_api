@@ -2,6 +2,8 @@ import jwt from 'jsonwebtoken';
 
 import { Users } from '../../models';
 
+const { auth } = require('../../../config').default;
+
 export default async (bodyData) => {
   const whereData = {};
 
@@ -18,7 +20,7 @@ export default async (bodyData) => {
     sns_email: result.dataValues.sns_email,
   };
 
-  const secretOrPrivateKey = process.env.JWT_SECRET;
+  const secretOrPrivateKey = auth.secret;
 
   const options = { expiresIn: 60 * 60 * 24 };
 

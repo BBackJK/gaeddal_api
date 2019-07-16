@@ -2,7 +2,7 @@ import { Users } from '../../controllers';
 
 export default async (req, res) => {
   try {
-    if (!req.decoded || !req.body.name) {
+    if (!req.decoded || !req.body.name || !req.body.phone) {
       return res.status(400).send('Bad Data');
     }
 

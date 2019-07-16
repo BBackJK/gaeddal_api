@@ -1,5 +1,7 @@
 import jwt from 'jsonwebtoken';
 
+const { auth } = require('../../config').default;
+
 const util = {};
 
 util.isLoggedIn = (req, res, next) => {
@@ -8,7 +10,8 @@ util.isLoggedIn = (req, res, next) => {
   if (!token) {
     return res.status(400).send('token is required');
   }
-  jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+
+  jwt.verify(token, auth.secret, (err, decoded) => {
     if (err) return res.status(401).send('Invalid Token');
 
     req.decoded = decoded;
