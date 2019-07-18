@@ -5,7 +5,9 @@ export default async (req, res) => {
   try {
     if (!req.decoded || !req.body.auth) return res.status(400).send('Bad Data');
 
-    if (req.body.auth !== authNumber.getNumber()) {
+    const auth = Number(req.body.auth);
+
+    if (auth !== authNumber.getNumber()) {
       return res.status(409).send('Not Auth Number');
     }
 
