@@ -11,6 +11,7 @@ const sequelize = new Sequelize(
   {
     host: database.host,
     dialect: database.dialect,
+    timezone: database.timezone,
     define: database.define,
   },
 );

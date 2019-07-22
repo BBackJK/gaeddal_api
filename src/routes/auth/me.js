@@ -6,7 +6,9 @@ export default async (req, res) => {
 
     const result = await Auth.me(req.decoded);
 
-    if (!result || result === 'not user') return res.status(404).send('Not Found');
+    if (!result || result === 'not user') {
+      return res.status(404).send('Not Found');
+    }
 
     return res.status(200).send(result);
   } catch (err) {
