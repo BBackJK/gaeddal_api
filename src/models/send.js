@@ -10,7 +10,7 @@ export default (sequelize, Sequelize) => sequelize.define(
       type: Sequelize.INTEGER,
       allowNull: false,
     },
-    recieve_id: {
+    receive_id: {
       type: Sequelize.INTEGER,
       allowNull: false,
     },

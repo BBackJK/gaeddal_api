@@ -4,7 +4,7 @@ export default async (req, res) => {
   try {
     if (!req.decoded) return res.status(400).send('Bad Data');
 
-    const result = await Send.getByRecieve(req.decoded);
+    const result = await Send.getByreceive(req.decoded);
 
     return !result
       ? res.status(404).send('Not Found')

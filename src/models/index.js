@@ -37,7 +37,7 @@ Users.hasMany(Send, {
 });
 
 Users.hasMany(Send, {
-  foreignKey: 'recieve_id',
+  foreignKey: 'receive_id',
   sourceKey: 'id',
 });
 

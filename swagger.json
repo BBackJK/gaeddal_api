@@ -2192,7 +2192,7 @@
                 "send_id": {
                   "type": "number"
                 },
-                "recieve_id": {
+                "receive_id": {
                   "type": "number"
                 },
                 "contents": {
@@ -2271,7 +2271,7 @@
                 "send_id": {
                   "type": "number"
                 },
-                "recieve_id": {
+                "receive_id": {
                   "type": "number"
                 },
                 "contents": {
@@ -2352,7 +2352,7 @@
                 "send_id": {
                   "type": "number"
                 },
-                "recieve_id": {
+                "receive_id": {
                   "type": "number"
                 },
                 "contents": {
@@ -2427,7 +2427,7 @@
                 "send_id": {
                   "type": "number"
                 },
-                "recieve_id": {
+                "receive_id": {
                   "type": "number"
                 },
                 "contents": {
@@ -2485,7 +2485,7 @@
         }
       }
     },
-    "/send/recieve": {
+    "/send/receive": {
       "get": {
         "tags": ["Send"],
         "parameters": [
@@ -2507,7 +2507,7 @@
                 "send_id": {
                   "type": "number"
                 },
-                "recieve_id": {
+                "receive_id": {
                   "type": "number"
                 },
                 "contents": {
@@ -2536,6 +2536,9 @@
                     },
                     "name": {
                       "type": "string"
+                    },
+                    "removed": {
+                      "type": "boolean"
                     }
                   }
                 }
@@ -2565,7 +2568,7 @@
         }
       }
     },
-    "/send/recieve/{id}": {
+    "/send/receive/{id}": {
       "get": {
         "tags": ["Send"],
         "parameters": [
@@ -2593,7 +2596,7 @@
                 "send_id": {
                   "type": "number"
                 },
-                "recieve_id": {
+                "receive_id": {
                   "type": "number"
                 },
                 "contents": {
@@ -2608,17 +2611,25 @@
                 "readed": {
                   "type": "boolean"
                 },
-                "removed": {
-                  "type": "boolean"
-                },
                 "sended_at": {
                   "type": "string"
                 },
-                "readed_at": {
-                  "type": "string"
-                },
-                "removed_at": {
-                  "type": "string"
+                "user": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "removed": {
+                      "type": "boolean"
+                    }
+                  }
                 }
               }
             }

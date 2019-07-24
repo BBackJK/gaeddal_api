@@ -5,7 +5,7 @@ export default async (decodeData, bodyData) => {
   const updateData = {};
 
   whereData.id = bodyData.id;
-  whereData.recieve_id = decodeData.id;
+  whereData.receive_id = decodeData.id;
   whereData.removed = 0;
   whereData.readed = 0;
 

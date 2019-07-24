@@ -15,7 +15,7 @@ export default async (decodeData, bodyData) => {
   const postData = {};
 
   postData.send_id = decodeData.id;
-  postData.recieve_id = bodyData.id;
+  postData.receive_id = bodyData.id;
   postData.contents = bodyData.contents;
   postData.lat = bodyData.lat;
   postData.lng = bodyData.lng;

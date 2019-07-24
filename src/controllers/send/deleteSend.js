@@ -5,7 +5,7 @@ export default async (decodeData, paramData) => {
 
   whereData.removed = 0;
   whereData.id = paramData.id;
-  whereData.recieve_id = decodeData.id;
+  whereData.receive_id = decodeData.id;
 
   const findResult = await Send.findOne({ where: whereData });
 

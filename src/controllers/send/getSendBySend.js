@@ -2,7 +2,7 @@ import { Send, Users } from '../../models';
 
 export default async (decodeData) => {
   Send.belongsTo(Users, {
-    foreignKey: 'recieve_id',
+    foreignKey: 'receive_id',
     targetKey: 'id',
   });
 
@@ -10,7 +10,7 @@ export default async (decodeData) => {
     attributes: [
       'id',
       'send_id',
-      'recieve_id',
+      'receive_id',
       'contents',
       'lat',
       'lng',

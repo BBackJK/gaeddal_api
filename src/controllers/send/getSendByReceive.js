@@ -10,7 +10,7 @@ export default async (decodeData) => {
     attributes: [
       'id',
       'send_id',
-      'recieve_id',
+      'receive_id',
       'contents',
       'lat',
       'lng',
@@ -20,11 +20,10 @@ export default async (decodeData) => {
     include: [
       {
         model: Users,
-        attributes: ['id', 'email', 'name'],
-        where: { removed: 0 },
+        attributes: ['id', 'email', 'name', 'removed'],
       },
     ],
-    where: { recieve_id: decodeData.id, removed: 0 },
+    where: { receive_id: decodeData.id, removed: 0 },
     order: [['sended_at', 'DESC']],
   });
 
