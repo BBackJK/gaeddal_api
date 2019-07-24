@@ -2,7 +2,6 @@ import { Messages } from '../../controllers';
 
 export default async (req, res) => {
   try {
-    console.log(req.body);
     if (
       !req.decoded
       || !req.body.id
